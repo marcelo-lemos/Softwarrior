@@ -12,7 +12,7 @@ O grupo desenvolverá um jogo 2D Platforming, no estilo dos jogos da franquia Ma
 
 **URL para a planilha:**
 
-
+https://docs.google.com/spreadsheets/d/1d-M2r0Hqc7PQQRQg2BjsgkzJxiU2KVb_vhlAvm8cmdg/edit?usp=sharing
 
 **Features do jogo**
 - 4 fases
