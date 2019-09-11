@@ -81,6 +81,6 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 - Tela de Game Over
 - Menu de Opções
 - Menu de seleção de niveis
-- HUD (barra de vida, pountuação, etc)
+- HUD (barra de vida, pontuação, etc)
 - Música
 - Design visual
