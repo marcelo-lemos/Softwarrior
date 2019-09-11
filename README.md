@@ -37,9 +37,10 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 - Design artístico
 
 **2. Pontuação**
-
+- Criação do banco
+- Serviço de cadastro/consulta online
 - Sistema de desempenho
-- Sistema online
+- Interface do scoreboard
 
 **3. Salvar jogo**
 - Salvar progresso do jogador
@@ -47,20 +48,39 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 - Interface
 
 **4. Inimigos**
-- IA
-- Boss
-- Respawn (Quando o inimigo derrotado volta para a fase)
-- Design artístico
+- Comportamento do inimigo 1
+- Arte do inimigo 1
+- Comportamento do inimigo 2
+- Arte do inimigo 2
+- Comportamento do inimigo 3
+- Arte do inimigo 3
+- Comportamento do inimigo 4
+- Arte do inimigo 4
+- Comportamento do boss
+- Arte do boss
+- Cutscene do boss
+- Sistema respawn (Quando o inimigo derrotado volta para a fase)
 
 **5. Design de level**
-- Visual
-- Gameplay
-- Músicas
+- Arte da fase 1
+- Design da fase 1
+- Musica da fase 1
+- Arte da fase 2
+- Design da fase 2
+- Musica da fase 2
+- Arte da fase 3
+- Design da fase 3
+- Musica da fase 3
+- Arte da fase 4
+- Design da fase 4
+- Musica da fase 4
+
 
 **6. Interface Geral**
 - Menu Principal
 - Tela de Game Over
 - Menu de Opções
+- Menu de seleção de niveis
 - HUD (barra de vida, pountuação, etc)
 - Música
-- Design artístico
+- Design visual
