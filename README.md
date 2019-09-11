@@ -34,7 +34,7 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 - Dash
 - Parry
 - Wall Grab
-- Design artístico
+- Design visual
 
 **2. Pontuação**
 - Criação do banco
