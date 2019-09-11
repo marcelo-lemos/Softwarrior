@@ -28,7 +28,7 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 
 **Estórias**
 
-1. Controlar Personagem
+**1. Controlar Personagem**
 - Movimentação básica (Andar e pular)
 - Combate básico (Range e Melee)
 - Dash
@@ -36,28 +36,28 @@ Usaremos a engine Godot e sua linguagem nativa, Gdscript, para a implementação
 - Wall Grab
 - Design artístico
 
-2. Pontuação
+**2. Pontuação**
 
 - Sistema de desempenho
 - Sistema online
 
-3. Salvar jogo
+**3. Salvar jogo**
 - Salvar progresso do jogador
 - Carregar (Load) o progresso salvo
 - Interface
 
-4. Inimigos
+**4. Inimigos**
 - IA
 - Boss
 - Respawn (Quando o inimigo derrotado volta para a fase)
 - Design artístico
 
-5. Design de level
+**5. Design de level**
 - Visual
 - Gameplay
 - Músicas
 
-6. Interface Geral
+**6. Interface Geral**
 - Menu Principal
 - Tela de Game Over
 - Menu de Opções
