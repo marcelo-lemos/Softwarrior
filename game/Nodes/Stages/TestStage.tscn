@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Nodes/kbscene/tileset.res" type="TileSet" id=1]
-[ext_resource path="res://Nodes/MainCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
+[ext_resource path="res://Nodes/Characters/MainCharacter.tscn" type="PackedScene" id=2]
+
+
 
 [node name="TestScene" type="Node"]
 
