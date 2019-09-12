@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ScoreRepository extends JpaRepository<Score,Long> {
-    List<Score> findTop100ByLevelIdOrderByScoreValue(Long levelId);
+    List<Score> findTop100ByLevelIdOrderByScoreValueDesc(Long levelId);
 }
