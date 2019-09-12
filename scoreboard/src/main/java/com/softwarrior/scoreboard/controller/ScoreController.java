@@ -22,7 +22,7 @@ public class ScoreController {
 
     @GetMapping("/score/{level}")
     public List<Score> getLevelTopScores(@PathVariable Long level, @RequestParam(required = false, defaultValue = "100") @Min(1) @Max(100) Integer top){
-        List<Score> topScores = scoreRepository.findTop100ByLevelIdOrderByScoreValue(level);
+        List<Score> topScores = scoreRepository.findTop100ByLevelIdOrderByScoreValueDesc(level);
         return topScores.subList(0,Math.min(top,topScores.size()));
     }
 
