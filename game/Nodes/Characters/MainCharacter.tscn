@@ -4,8 +4,6 @@
 [ext_resource path="res://Nodes/Characters/GenericCharacter.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/char.png" type="Texture" id=3]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.2533, 26.6643 )
 
