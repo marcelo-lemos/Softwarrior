@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/char.png-10b8be26a51e4a9108c4d2fdd60516ff.stex"
+path="res://.import/Selena-idle0000.png-f3841614af9986b773f84190b5206fbb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/char.png"
-dest_files=[ "res://.import/char.png-10b8be26a51e4a9108c4d2fdd60516ff.stex" ]
+source_file="res://Assets/Mc/Selena-idle0000.png"
+dest_files=[ "res://.import/Selena-idle0000.png-f3841614af9986b773f84190b5206fbb.stex" ]
 
 [params]
 

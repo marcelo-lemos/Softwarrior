@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset.png-f52e8e44f74a535dd898a49592afe6d9.stex"
+path="res://.import/Selena-walk0000.png-3f79390384a3a4d114c1b185529eb11e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/tileset.png"
-dest_files=[ "res://.import/tileset.png-f52e8e44f74a535dd898a49592afe6d9.stex" ]
+source_file="res://Assets/Mc/Selena-walk0000.png"
+dest_files=[ "res://.import/Selena-walk0000.png-3f79390384a3a4d114c1b185529eb11e.stex" ]
 
 [params]
 

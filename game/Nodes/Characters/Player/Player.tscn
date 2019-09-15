@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Nodes/Characters/BaseChar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Characters/Player/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Mc/Selena-idle0000.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Mc/Selena-walk0000.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Mc/Selena-jump-up0000.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Mc/Selena-jump-down0000.png" type="Texture" id=6]
+[ext_resource path="res://Nodes/Combat/Katana.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jump_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump_down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.117, 16.0842 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 7.117, 16.0842 )
+
+[node name="Player" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )
+animation = "walk"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( -1, 0 )
+shape = SubResource( 2 )
+
+[node name="StandShape" type="CollisionShape2D" parent="." index="3"]
+position = Vector2( -1, 0 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+
+[node name="Katana" parent="." index="5" instance=ExtResource( 7 )]
+position = Vector2( -2.06383, 2.47659 )
+scale = Vector2( 4.5331, 4.55247 )
+

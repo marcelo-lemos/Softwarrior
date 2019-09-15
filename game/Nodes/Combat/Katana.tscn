@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Nodes/Combat/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Combat/Katana.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "attack"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 0.5, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 144.768, -12.7444, 13.5077, 13.5077, 144.768 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[node name="Katana" instance=ExtResource( 1 )]
+rotation = 2.52668
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/attack = SubResource( 1 )
+anims/idle = SubResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+rotation = 0.390776
+disabled = true
+
