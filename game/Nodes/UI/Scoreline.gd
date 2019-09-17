@@ -1,4 +1,4 @@
-extends HBoxContainer
+	extends HBoxContainer
 class_name Scoreline
 # Declare member variables here. Examples:
 # var a = 2
