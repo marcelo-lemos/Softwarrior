@@ -2,7 +2,7 @@ extends "res://Scripts/StateMachine/PlayerState/BasePlayerState.gd"
 class_name PlayerWalkState
 
 func update(delta):
-	.update(delta)
+	#.update(delta)
 	body.linear_vel.y = 0
 	body.apply_gravity(delta)
 	var hvel = check_horizontal_direction() * body.PURE_WALK_SPEED

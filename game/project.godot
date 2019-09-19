@@ -56,7 +56,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Softwarrior"
+config/name="ADLER"
 run/main_scene="res://Nodes/UI/TitleScreen.tscn"
 config/icon="res://icon.png"
 
