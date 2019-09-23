@@ -6,6 +6,4 @@ func handle_input(event):
 	return .handle_input(event)
 	
 func update(delta):
-	if !body.is_on_floor():
-		emit_signal("finished", "mid_air")
 	.update(delta)

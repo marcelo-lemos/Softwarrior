@@ -26,6 +26,3 @@ func _physics_process(delta):
 			velocity.y = -400
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

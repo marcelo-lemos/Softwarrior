@@ -13,4 +13,7 @@ tile_data = PoolIntArray( 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -140.64, 14.723 )
 
+[node name="GenericCharacter" parent="Player" index="0"]
+position = Vector2( 497.335, 233.142 )
+
 [editable path="Player"]
