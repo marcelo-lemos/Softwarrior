@@ -9,21 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Object",
-"class": "BasePlayerState",
-"language": "GDScript",
-"path": "res://Scripts/StateMachine/PlayerState/BasePlayerState.gd"
-}, {
-"base": "Object",
-"class": "PlayerJumpState",
-"language": "GDScript",
-"path": "res://Scripts/StateMachine/PlayerState/PlayerJumpState.gd"
-}, {
-"base": "Object",
-"class": "PlayerWalkState",
-"language": "GDScript",
-"path": "res://Scripts/StateMachine/PlayerState/PlayerWalkState.gd"
-}, {
 "base": "HBoxContainer",
 "class": "Scoreline",
 "language": "GDScript",
@@ -33,25 +18,10 @@ _global_script_classes=[ {
 "class": "StageData",
 "language": "GDScript",
 "path": "res://Nodes/Stages/StageData.gd"
-}, {
-"base": "Object",
-"class": "State",
-"language": "GDScript",
-"path": "res://Scripts/StateMachine/State.gd"
-}, {
-"base": "Object",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://Scripts/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"BasePlayerState": "",
-"PlayerJumpState": "",
-"PlayerWalkState": "",
 "Scoreline": "",
-"StageData": "",
-"State": "",
-"StateMachine": ""
+"StageData": ""
 }
 
 [application]
