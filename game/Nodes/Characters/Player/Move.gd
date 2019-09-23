@@ -3,7 +3,7 @@ extends "OnGround.gd"
 const MOVE_SPEED = 300
 
 func enter():
-	var input_direction = get_input_direction()
+	.enter()
 
 func handle_input(event):
 	return .handle_input(event)
@@ -12,6 +12,7 @@ func update(delta):
 	var input_direction = get_input_direction()
 
 	velocity.x = input_direction[0] * MOVE_SPEED
+	.update(delta)
 
 func move(speed, direction):
 	velocity = direction.normalized() * speed

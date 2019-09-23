@@ -17,9 +17,8 @@ func get_input_direction():
 
 	return input_direction
 	
-func updated(delta):
-	velocity.y =+ GRAVITY
-	if velocity.y != 0.0:
-		print(velocity)
+func update(delta):
+	velocity.y += GRAVITY
 	velocity = body.move_and_slide(velocity, NORMAL)
+
 

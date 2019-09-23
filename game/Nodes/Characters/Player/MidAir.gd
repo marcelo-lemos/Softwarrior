@@ -1,10 +1,10 @@
 extends "Motion.gd"
 
-const JUMP_FORCE = -400
+const AIR_MOVE_SPEED = 150
 
 # Initialize the state. E.g. change the animation
 func enter():
-	velocity.y = JUMP_FORCE
+	pass
 
 # Clean up the state. Reinitialize values like a timer
 func exit():
@@ -14,5 +14,8 @@ func handle_input(event):
 	.handle_input(event)
 
 func update(delta):
-	body.move_and_slide(velocity, NORMAL)
-	emit_signal("finished", "mid_air")
+	if body.is_on_floor():
+		emit_signal("finished", "move")
+	var input_direction = get_input_direction()
+	velocity.x = input_direction[0] * AIR_MOVE_SPEED
+	.update(delta)

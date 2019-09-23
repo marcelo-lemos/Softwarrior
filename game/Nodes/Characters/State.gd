@@ -9,14 +9,14 @@ signal finished(next_state_name)
 
 # Initialize the state. E.g. change the animation
 func enter():
-	return
+	pass
 
 # Clean up the state. Reinitialize values like a timer
 func exit():
-	return
+	pass
 
 func handle_input(event):
-	return
+	pass
 
 func update(delta):
-	return
+	pass
