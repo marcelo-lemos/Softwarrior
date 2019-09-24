@@ -18,7 +18,6 @@ extents = Vector2( 6.11917, 8.2581 )
 script = ExtResource( 1 )
 
 [node name="GenericCharacter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 509.45, 168.75 )
 
 [node name="Sprite" parent="GenericCharacter" index="0"]
 texture = ExtResource( 3 )
