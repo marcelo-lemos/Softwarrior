@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Characters/GenericCharacter.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/char.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.2533, 26.6643 )
+
+[node name="MainCharacter" type="Node2D"]
+
+[node name="GenericCharacter" parent="." instance=ExtResource( 1 )]
+position = Vector2( 561.45, 175.75 )
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="GenericCharacter" index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="GenericCharacter" index="1"]
+position = Vector2( -1.6, 2.06 )
+shape = SubResource( 1 )
+
+
+[editable path="GenericCharacter"]
