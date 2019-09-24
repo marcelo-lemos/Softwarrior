@@ -1,14 +1,8 @@
-extends "../State.gd"
-
-const GRAVITY = 10
-const NORMAL  = Vector2(0,-1)
-
-var velocity = Vector2(0,0.05)
-onready var body = get_node("../..")
-onready var sprite = body.get_node("Sprite")
-
+extends "PlayerBaseState.gd"
 
 func handle_input(event):
+	if event.is_action_pressed("dash") and player.has_dash:
+		emit_signal("finished", "dash")
 	.handle_input(event)
 
 func get_input_direction():
@@ -20,10 +14,9 @@ func get_input_direction():
 	
 func update(delta):
 	check_sprite_dir()
-	velocity = body.move_and_slide(velocity, NORMAL)
 
 func check_sprite_dir():
-	if velocity.x > 0:
+	if player.velocity.x > 0:
 		sprite.flip_h = false
-	elif velocity.x < 0:
+	elif player.velocity.x < 0:
 		sprite.flip_h = true
