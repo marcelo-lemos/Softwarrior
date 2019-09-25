@@ -12,6 +12,8 @@ Um jogo 2D Platforming, no estilo dos jogos da franquia Mario.
 
 [Planilha de Apuração de Horas Trabalhadas](https://docs.google.com/spreadsheets/d/1d-M2r0Hqc7PQQRQg2BjsgkzJxiU2KVb_vhlAvm8cmdg/edit?usp=sharing)
 
+![Burndown](https://media.discordapp.net/attachments/567403716299325443/626265301167767585/graph.jpg)
+
 ## Features do jogo
 - Quatro fases únicas
 - Quatro inimigos diferentes
