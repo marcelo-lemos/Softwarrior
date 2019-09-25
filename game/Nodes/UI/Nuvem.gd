@@ -2,8 +2,8 @@ extends Sprite
 
 
 # Declare member variables here. Examples:
-var velocity = Vector2()
-var speed = 4
+var velocity = Vector2(-1,0)
+export (float) var speed = 4
 # var b = "text"
 
 # Called when the node enters the scene tree for the first time.
@@ -13,10 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity = Vector2()
-	velocity.x -= 1
-	
-	var motion = velocity * speed * delta
+	var motion = velocity * speed * delta 
 	
 	position = position + motion
 	pass
