@@ -1,15 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Nodes/Characters/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sprites/MC/MapCharIdle0000.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Characters/Player/PlayerStateMachine.gd" type="Script" id=4]
 [ext_resource path="res://Nodes/Characters/Player/Move.gd" type="Script" id=5]
-[ext_resource path="res://Nodes/Characters/Player/Jump.gd" type="Script" id=6]
-[ext_resource path="res://Nodes/Characters/Player/Dash.gd" type="Script" id=7]
-[ext_resource path="res://Nodes/Characters/Player/MidAir.gd" type="Script" id=8]
-[ext_resource path="res://Nodes/Characters/Player/OnWall.gd" type="Script" id=9]
-[ext_resource path="res://Nodes/Characters/Player/SecondJump.gd" type="Script" id=10]
+[ext_resource path="res://Nodes/Characters/Player/Dash.gd" type="Script" id=6]
+[ext_resource path="res://Nodes/Characters/Player/MidAir.gd" type="Script" id=7]
+[ext_resource path="res://Nodes/Characters/Player/OnWall.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.11917, 8.2581 )
@@ -18,6 +16,7 @@ extents = Vector2( 6.11917, 8.2581 )
 script = ExtResource( 1 )
 
 [node name="GenericCharacter" parent="." instance=ExtResource( 2 )]
+collision_mask = 2
 
 [node name="Sprite" parent="GenericCharacter" index="0"]
 texture = ExtResource( 3 )
@@ -26,6 +25,34 @@ texture = ExtResource( 3 )
 position = Vector2( 0.15, 0.06 )
 shape = SubResource( 1 )
 
+[node name="WallDetection" type="Node2D" parent="GenericCharacter"]
+
+[node name="FootLeft" type="RayCast2D" parent="GenericCharacter/WallDetection"]
+position = Vector2( 0, 6 )
+rotation = -3.14159
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="HeadLeft" type="RayCast2D" parent="GenericCharacter/WallDetection"]
+position = Vector2( 0, -5.14 )
+rotation = -3.14159
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="HeadRight" type="RayCast2D" parent="GenericCharacter/WallDetection"]
+position = Vector2( 0, -5.14 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="FootRight" type="RayCast2D" parent="GenericCharacter/WallDetection"]
+position = Vector2( 0, 6 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
 [node name="StateMachine" type="Node" parent="GenericCharacter"]
 script = ExtResource( 4 )
 START_STATE = NodePath("Move")
@@ -33,19 +60,13 @@ START_STATE = NodePath("Move")
 [node name="Move" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 5 )
 
-[node name="Jump" type="Node" parent="GenericCharacter/StateMachine"]
+[node name="Dash" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 6 )
 
-[node name="Dash" type="Node" parent="GenericCharacter/StateMachine"]
+[node name="MidAir" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 7 )
 
-[node name="MidAir" type="Node" parent="GenericCharacter/StateMachine"]
-script = ExtResource( 8 )
-
 [node name="OnWall" type="Node" parent="GenericCharacter/StateMachine"]
-script = ExtResource( 9 )
-
-[node name="SecondJump" type="Node" parent="GenericCharacter/StateMachine"]
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [editable path="GenericCharacter"]
