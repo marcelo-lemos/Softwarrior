@@ -3,6 +3,8 @@ extends Node2D
 const GRAVITY = 10.0
 const NORMAL = Vector2(0,-1)
 
+var going_right = true
+
 #physics vars
 onready var body = get_node("GenericCharacter")
 var velocity = Vector2(0,0.2)
