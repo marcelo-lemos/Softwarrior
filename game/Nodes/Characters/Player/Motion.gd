@@ -20,3 +20,19 @@ func check_sprite_dir():
 		sprite.flip_h = false
 	elif player.velocity.x < 0:
 		sprite.flip_h = true
+
+func check_wall(wall_detection):
+	for raycast in wall_detection.get_children():
+		if raycast.is_colliding():
+			return true
+	return false
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,13 +1,25 @@
-extends Node
+extends "Motion.gd"
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const FRICTION = 8
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func enter():
+	print("Entering ONWALL")
+	player.has_dash = true
+	player.velocity.y = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func exit():
+	print("Exiting ONWALL")
+
+func handle_input(event):
+	if event.is_action_pressed("jump") and get_input_direction()[0] != 0:
+		emit_signal("finished", "jump")
+	.handle_input(event)
+
+func update(delta):
+	player.velocity.y -= FRICTION
+	player.velocity.x += 0.02
+	
+	if body.is_on_floor():
+		emit_signal("finished", "move")
+	
+	.update(delta)

@@ -20,6 +20,8 @@ func handle_input(event):
 func update(delta):
 	if body.is_on_floor():
 		emit_signal("finished", "move")
+	elif check_wall(wallDetection):
+		emit_signal("finished", "on_wall")
 		
 	var input_direction = get_input_direction()
 	player.velocity.x = input_direction[0] * AIR_MOVE_SPEED
