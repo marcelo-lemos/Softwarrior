@@ -10,7 +10,15 @@ var apply_gravity = true
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
+var shuriken_shots = 4
+onready var shuriken = $GenericCharacter/Shuriken
 
 func _process(delta):
 	velocity.y += 10
 	velocity = body.move_and_slide(velocity, NORMAL)
+	
+func fire(direction):
+
+	print("SHURIKEN FAIRE!")
+	shuriken_shots -= 1
+	shuriken.fire(direction)

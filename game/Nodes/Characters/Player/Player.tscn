@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Nodes/Characters/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Nodes/Characters/Player/MidAir.gd" type="Script" id=8]
 [ext_resource path="res://Nodes/Characters/Player/OnWall.gd" type="Script" id=9]
 [ext_resource path="res://Nodes/Characters/Player/SecondJump.gd" type="Script" id=10]
+[ext_resource path="res://Nodes/Combat/shurikenShots.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.11917, 8.2581 )
@@ -47,5 +48,12 @@ script = ExtResource( 9 )
 
 [node name="SecondJump" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 10 )
+
+[node name="Shuriken" type="Node2D" parent="GenericCharacter"]
+script = ExtResource( 11 )
+
+[node name="CooldownTimer" type="Timer" parent="GenericCharacter/Shuriken"]
+wait_time = 0.2
+
 
 [editable path="GenericCharacter"]

@@ -3,6 +3,8 @@ extends "PlayerBaseState.gd"
 func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
 		emit_signal("finished", "dash")
+	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
+		player.fire(look_direction)
 	.handle_input(event)
 
 func get_input_direction():
@@ -18,5 +20,7 @@ func update(delta):
 func check_sprite_dir():
 	if player.velocity.x > 0:
 		sprite.flip_h = false
+		look_direction = Vector2(1, 0)
 	elif player.velocity.x < 0:
 		sprite.flip_h = true
+		look_direction = Vector2(-1, 0)

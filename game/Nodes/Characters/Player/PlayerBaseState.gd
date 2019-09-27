@@ -6,6 +6,7 @@ const NORMAL  = Vector2(0,-1)
 onready var player = get_node("../../..")
 onready var body = get_node("../..")
 onready var sprite = body.get_node("Sprite")
+var look_direction = Vector2(1, 0)
 
 func enter():
 	pass
