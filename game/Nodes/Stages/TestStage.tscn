@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Nodes/Stages/Pause.gd" type="Script" id=3]
 
 [node name="TestScene" type="Node"]
 
@@ -14,3 +15,18 @@ tile_data = PoolIntArray( 0, 0, 0, 65536, 0, 0, 65538, 0, 0, 65540, 0, 0, 65541,
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 275.5, 248.161 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
