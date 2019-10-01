@@ -2,7 +2,7 @@ extends "Motion.gd"
 
 const WALL_SLIDE_VELOCITY = 50
 const WALL_JUMP_HEIGHT = -300
-const WALL_JUMP_HORIZONTAL = 200
+const WALL_JUMP_HORIZONTAL = 2000
 
 var wall_side
 

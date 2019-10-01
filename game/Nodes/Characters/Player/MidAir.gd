@@ -1,8 +1,8 @@
 extends "Motion.gd"
 
 const MAX_AIR_SPEED = 200
-const AIR_ACCELERATION = 50
-const AIR_SLOWDOWN = 25
+const AIR_ACCELERATION = 20
+const AIR_SLOWDOWN = 10
 
 const SECOND_JUMP_HEIGHT = -200
 
@@ -24,9 +24,9 @@ func handle_input(event):
 func update(delta):
 	if body.is_on_floor():
 		emit_signal("finished", "move")
-	elif check_wall_left() and get_input_direction()[0] < 0:
+	elif check_wall_left() and get_input_direction()[0] < 0 and player.velocity.x <= 0:
 		emit_signal("finished", "on_wall")
-	elif check_wall_right() and get_input_direction()[0] > 0:
+	elif check_wall_right() and get_input_direction()[0] > 0 and player.velocity.x >= 0:
 		emit_signal("finished", "on_wall")
 		
 	if player.velocity.y > 0:
