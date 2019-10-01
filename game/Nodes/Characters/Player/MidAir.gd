@@ -24,12 +24,14 @@ func handle_input(event):
 func update(delta):
 	if body.is_on_floor():
 		emit_signal("finished", "move")
-	elif check_wall_left() and get_input_direction()[0] < 0 and player.velocity.x <= 0:
-		emit_signal("finished", "on_wall")
-	elif check_wall_right() and get_input_direction()[0] > 0 and player.velocity.x >= 0:
-		emit_signal("finished", "on_wall")
-		
-	if player.velocity.y > 0:
+	
+	if (player.velocity.y < 25 and player.velocity.y > -25) or player.velocity.y > 50:
+		if check_wall_left() and get_input_direction()[0] < 0 and player.velocity.x <= 0:
+			emit_signal("finished", "on_wall")
+		elif check_wall_right() and get_input_direction()[0] > 0 and player.velocity.x >= 0:
+			emit_signal("finished", "on_wall")
+			
+	if player.velocity.y < 0:
 		sprite.play("JumpUp")
 	else:
 		sprite.play("JumpDown")
