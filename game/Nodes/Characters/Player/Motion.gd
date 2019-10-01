@@ -3,6 +3,7 @@ extends "PlayerBaseState.gd"
 func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
 		emit_signal("finished", "dash")
+	check_sprite_dir(event)
 	.handle_input(event)
 
 func get_input_direction():
@@ -13,8 +14,8 @@ func get_input_direction():
 	return input_direction
 	
 func update(delta):
+	player.velocity.y += GRAVITY
 	check_direction()
-	check_sprite_dir()
 
 func check_direction():
 	if player.velocity.x > 0:
@@ -22,10 +23,12 @@ func check_direction():
 	elif player.velocity.x < 0:
 		player.going_right = false
 
-func check_sprite_dir():
-	if player.velocity.x > 0:
+func check_sprite_dir(event):
+	var input_direction = get_input_direction()[0]
+	
+	if input_direction > 0:
 		sprite.flip_h = false
-	elif player.velocity.x < 0:
+	elif input_direction < 0:
 		sprite.flip_h = true
 
 func check_wall():

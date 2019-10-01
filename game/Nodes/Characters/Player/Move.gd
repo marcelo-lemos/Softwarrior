@@ -9,6 +9,7 @@ const JUMP_FORCE = -300
 
 func enter():
 	print("Entering MOVE")
+	sprite.play("Run")
 	.enter()
 
 func exit():
@@ -24,6 +25,11 @@ func update(delta):
 	player.has_dash = true
 	player.has_double_jump = true
 	
+	if player.velocity.x == 0:
+		sprite.play("Idle")
+	else:
+		sprite.play("Run")
+	
 	var input_direction = get_input_direction()
 	if input_direction:
 		player.velocity.x += get_input_direction()[0] * MOVE_ACCELERATION
@@ -37,6 +43,7 @@ func update(delta):
 
 func apply_ground_slowdown():
 	if player.velocity.x > 0:
-		player.velocity.x -= GROUND_SLOWDOWN
+		player.velocity.x = player.velocity.x - GROUND_SLOWDOWN if player.velocity.x > GROUND_SLOWDOWN else 0.0
+
 	elif player.velocity.x < 0:
-		player.velocity.x += GROUND_SLOWDOWN
+		player.velocity.x = player.velocity.x + GROUND_SLOWDOWN if player.velocity.x < GROUND_SLOWDOWN else 0.0

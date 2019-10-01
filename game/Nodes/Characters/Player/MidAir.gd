@@ -29,6 +29,11 @@ func update(delta):
 	elif check_wall_right() and get_input_direction()[0] > 0:
 		emit_signal("finished", "on_wall")
 		
+	if player.velocity.y > 0:
+		sprite.play("JumpUp")
+	else:
+		sprite.play("JumpDown")
+		
 	var input_direction = get_input_direction()
 	if input_direction:
 		player.velocity.x += input_direction[0] * AIR_ACCELERATION

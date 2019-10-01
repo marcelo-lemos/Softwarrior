@@ -15,5 +15,4 @@ var has_dash = true
 var has_double_jump = true
 
 func _process(delta):
-	velocity.y += GRAVITY
 	velocity = body.move_and_slide(velocity, NORMAL)

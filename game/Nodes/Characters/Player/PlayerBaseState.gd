@@ -8,7 +8,6 @@ onready var body = get_node("../..")
 onready var sprite = body.get_node("Sprite")
 onready var wallDetection = body.get_node("WallDetection")
 
-
 func enter():
 	pass
 
