@@ -34,6 +34,7 @@ func handle_input(event):
 	.handle_input(event)
 
 func update(delta):
+	sprite.play("Wall")
 	player.velocity.y = WALL_SLIDE_VELOCITY
 	
 	if body.is_on_floor():

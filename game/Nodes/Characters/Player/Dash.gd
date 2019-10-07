@@ -7,6 +7,7 @@ var dash_time_count = 0.0
 
 func enter():
 	print("Entering DASH")
+	sprite.play("Dash")
 	dash_time_count = 0.0
 	player.has_dash = false
 	.enter()
