@@ -1,6 +1,6 @@
 extends Node2D
 
-const GRAVITY = 10.0
+const GRAVITY = 40.0
 const NORMAL = Vector2(0,-1)
 
 var going_right = true

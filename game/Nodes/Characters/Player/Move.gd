@@ -1,9 +1,9 @@
 extends "Motion.gd"
 
 const MOVE_SPEED = 250
-const MOVE_ACCELERATION = 30
+const MOVE_ACCELERATION = 40
 const MAX_MOVE_SPEED = 250
-const GROUND_SLOWDOWN = 25
+const GROUND_SLOWDOWN = 30
 
 const JUMP_FORCE = -300
 
@@ -25,18 +25,18 @@ func update(delta):
 	player.has_dash = true
 	player.has_double_jump = true
 	
-	if player.velocity.x == 0:
-		sprite.play("Idle")
-	else:
-		sprite.play("Run")
-	
 	var input_direction = get_input_direction()
+	
 	if input_direction:
 		player.velocity.x += get_input_direction()[0] * MOVE_ACCELERATION
 		player.velocity.x = cap_velocity(player.velocity.x, MAX_MOVE_SPEED)
+		sprite.play("Run")
 	elif player.velocity.x != 0:
+		sprite.play("Idle")
 		apply_ground_slowdown()
-	
+	else:
+		sprite.play("Idle")
+		
 	if !body.is_on_floor():
 		emit_signal("finished", "mid_air")
 	.update(delta)

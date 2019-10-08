@@ -7,25 +7,25 @@
 [ext_resource path="res://Assets/Sprites/MC/PlayerDash3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/MC/PlayerDash4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/MC/playerJumpUp.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun3.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun4.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun5.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun6.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun7.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun8.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun9.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun10.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun11.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle1.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle2.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle3.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle4.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle5.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle6.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Sprites/MC/playerJumpDown.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Sprites/MC/PlayerWall.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/MC/playerJumpDown.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/MC/PlayerWall.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle4.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle5.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle6.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun4.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun5.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun6.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun7.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun8.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun9.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun10.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun11.png" type="Texture" id=26]
 [ext_resource path="res://Nodes/Characters/Player/PlayerStateMachine.gd" type="Script" id=27]
 [ext_resource path="res://Nodes/Characters/Player/Move.gd" type="Script" id=28]
 [ext_resource path="res://Nodes/Characters/Player/Dash.gd" type="Script" id=29]
@@ -44,25 +44,25 @@ animations = [ {
 "name": "JumpUp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "Run",
-"speed": 19.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "JumpDown",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Wall",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "Run",
+"speed": 19.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

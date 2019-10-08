@@ -1,6 +1,6 @@
 extends "res://Nodes/Characters/State.gd"
 
-const GRAVITY = 10
+const GRAVITY = 15
 const NORMAL  = Vector2(0,-1)
 
 onready var player = get_node("../../..")

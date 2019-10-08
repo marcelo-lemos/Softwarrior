@@ -4,7 +4,7 @@ const MAX_AIR_SPEED = 200
 const AIR_ACCELERATION = 20
 const AIR_SLOWDOWN = 10
 
-const SECOND_JUMP_HEIGHT = -200
+const SECOND_JUMP_HEIGHT = -250
 
 var jump_var_height = 100
 
