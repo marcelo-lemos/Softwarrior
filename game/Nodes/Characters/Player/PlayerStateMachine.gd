@@ -7,16 +7,23 @@ func _ready():
 		"dash": $Dash,
 		"mid_air": $MidAir,
 		"on_wall": $OnWall,
-		"second_jump": $SecondJump
+		"second_jump": $SecondJump,
+		"attack": $Attack
 	}
 
 func _change_state(state_name):
 	if not _active:
 		return
-	if state_name in ["jump", "dash"]:
+	if state_name in ["jump", "dash", "attack"]:
 		states_stack.push_front(states_map[state_name])
 	
 	._change_state(state_name)
 
 func _input(event):
-	pass
+	if event.is_action_pressed("attack"):
+		if current_state == $Attack:
+			return
+		_change_state("attack")
+		return
+	current_state.handle_input(event)
+	
