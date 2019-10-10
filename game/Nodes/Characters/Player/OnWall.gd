@@ -20,10 +20,13 @@ func handle_input(event):
 
 	if (check_wall_right() and inputH < 0) or (check_wall_left() and inputH > 0):
 		emit_signal("finished", "mid_air")
-
+	
 	if event.is_action_pressed("jump"):
 		if player.going_right:
-			player.velocity.x = -WALL_JUMP_HORIZONTAL
+			if(inputH == 0):
+				player.velocity.x = 3 * -WALL_JUMP_HORIZONTAL
+			else:
+				player.velocity.x = -WALL_JUMP_HORIZONTAL
 			player.velocity.y = WALL_JUMP_HEIGHT
 			emit_signal("finished", "mid_air")
 		else:

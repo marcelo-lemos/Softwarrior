@@ -2,7 +2,7 @@ extends "Motion.gd"
 
 const MAX_AIR_SPEED = 200
 const AIR_ACCELERATION = 20
-const AIR_SLOWDOWN = 10
+const AIR_SLOWDOWN = 1
 
 const SECOND_JUMP_HEIGHT = -250
 
@@ -39,10 +39,9 @@ func update(delta):
 	var input_direction = get_input_direction()
 	if input_direction:
 		player.velocity.x += input_direction[0] * AIR_ACCELERATION
-		player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	elif player.velocity.x != 0:
 		apply_air_slowdown()
-
+	player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	if(Input.is_action_just_released("jump")):
 		check_jump_cut(jump_var_height)
 	

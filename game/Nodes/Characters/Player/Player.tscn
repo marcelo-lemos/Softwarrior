@@ -171,7 +171,6 @@ script = ExtResource( 33 )
 current = true
 limit_left = -50
 limit_bottom = 0
-smoothing_enabled = true
 
 [node name="TextureEmitter" type="Node2D" parent="GenericCharacter"]
 show_behind_parent = true

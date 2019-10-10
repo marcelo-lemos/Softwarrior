@@ -41,7 +41,7 @@ settings/fps/force_fps=60
 [display]
 
 window/size/width=640
-window/size/height=320
+window/size/height=360
 window/dpi/allow_hidpi=true
 window/per_pixel_transparency/allowed=true
 window/stretch/mode="2d"
@@ -91,6 +91,7 @@ dash={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
