@@ -15,13 +15,22 @@ var attack_current = {}
 var combo = [{
 		'damage': 1,
 		'animation': 'attack',
+	},
+	{
+		'damage': 1,
+		'animation': 'attack2',
+	},
+	{
+		'damage': 1,
+		'animation': 'attack3',
 	}]
 
 var hit_objects = []
 
 func _ready():
-	$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
+	#$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
 	self.connect("body_entered", self, "_on_body_entered")
+	print("lixo ready")
 	_change_state(STATES.IDLE)
 
 func _change_state(new_state):
@@ -42,6 +51,7 @@ func _change_state(new_state):
 			$AnimationPlayer.play(attack_current['animation'])
 			visible = true
 			monitoring = true
+			print(attack_current)
 	state = new_state
 
 func _input(event):
@@ -54,6 +64,7 @@ func _input(event):
 
 func _physics_process(delta):
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
+		print("attaque")
 		attack()
 
 func attack():
@@ -76,16 +87,11 @@ func _on_body_entered(body):
 	hit_objects.append(body.get_rid().get_id())
 	body.take_damage(self, attack_current['damage'])
 
-func _on_animation_finished(name):
+func _on_AnimationPlayer_animation_finished(anim_name):
 	if not attack_current:
 		return
-
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
 		attack()
 	else:
 		_change_state(STATES.IDLE)
 		emit_signal("attack_finished")
-
-func _on_StateMachine_state_changed(current_state):
-	if current_state.name == "Attack":
-		attack()

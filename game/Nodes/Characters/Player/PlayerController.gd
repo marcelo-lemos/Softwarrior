@@ -12,6 +12,7 @@ var has_dash = true
 var has_double_jump = true
 var shuriken_shots = 4
 onready var shuriken = $GenericCharacter/Shuriken
+onready var katana = $GenericCharacter/Katana
 
 func _process(delta):
 	velocity.y += 10
