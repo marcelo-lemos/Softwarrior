@@ -1,6 +1,9 @@
 extends Node2D
 
+const GRAVITY = 40.0
 const NORMAL = Vector2(0,-1)
+
+var going_right = true
 
 #physics vars
 onready var body = get_node("GenericCharacter")
@@ -15,11 +18,4 @@ onready var shuriken = $GenericCharacter/Shuriken
 onready var katana = $GenericCharacter/Katana
 
 func _process(delta):
-	velocity.y += 10
 	velocity = body.move_and_slide(velocity, NORMAL)
-	
-func fire(direction):
-
-	print("SHURIKEN FAIRE!")
-	shuriken_shots -= 1
-	shuriken.fire(direction)
