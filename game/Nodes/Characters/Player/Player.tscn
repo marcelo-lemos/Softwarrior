@@ -179,7 +179,7 @@ script = ExtResource( 34 )
 [node name="Flip" type="CPUParticles2D" parent="GenericCharacter/TextureEmitter"]
 show_behind_parent = true
 emitting = false
-amount = 10
+amount = 4
 lifetime = 0.5
 local_coords = false
 texture = ExtResource( 35 )
@@ -194,7 +194,7 @@ one_shot = true
 [node name="Default" type="CPUParticles2D" parent="GenericCharacter/TextureEmitter"]
 show_behind_parent = true
 emitting = false
-amount = 10
+amount = 4
 lifetime = 0.5
 local_coords = false
 texture = ExtResource( 37 )

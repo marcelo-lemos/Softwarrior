@@ -98,6 +98,54 @@ region_rect = Rect2( 0, 0, 32, 32 )
 position = Vector2( -1.90735e-006, -1.90735e-006 )
 polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 16 )
 
+[node name="Bottom" type="Sprite" parent="."]
+position = Vector2( 201, 25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 128, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bottom"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bottom/StaticBody2D"]
+position = Vector2( -1.90735e-006, -1.90735e-006 )
+polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 16 )
+
+[node name="BottomSingle" type="Sprite" parent="."]
+position = Vector2( 249, 25 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 128, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BottomSingle"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BottomSingle/StaticBody2D"]
+position = Vector2( -1.90735e-006, -1.90735e-006 )
+polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 16 )
+
+[node name="Corner" type="Sprite" parent="."]
+position = Vector2( 201, 72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 64, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Corner"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Corner/StaticBody2D"]
+position = Vector2( -1.90735e-006, -1.90735e-006 )
+polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 16 )
+
+[node name="TopSingle" type="Sprite" parent="."]
+position = Vector2( 201, 72 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 96, 32, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TopSingle"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TopSingle/StaticBody2D"]
+position = Vector2( -1.90735e-006, -1.90735e-006 )
+polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 16 )
+
 [node name="BG" type="Sprite" parent="."]
 position = Vector2( 125, 125 )
 region_enabled = true

@@ -25,6 +25,7 @@ func start_emitting():
 		$Default.start_emitting()
 
 func set_flip_h(value):
-	stop_emitting()
-	flip_h = value
-	start_emitting()
+	if(flip_h != value):
+		stop_emitting()
+		flip_h = value
+		start_emitting()

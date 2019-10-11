@@ -16,6 +16,13 @@ func enter():
 	sprite.play("Dash")
 	dash_time_count = 0.0
 	player.has_dash = false
+	trail.start_emitting()
+	if sprite.flip_h == false:
+		trail.flip_h = false
+		player.velocity.x = DASH_VELOCITY
+	else:
+		trail.flip_h = true
+		player.velocity.x = -DASH_VELOCITY
 	.enter()
 
 func exit():
@@ -31,15 +38,7 @@ func handle_input(event):
 	return .handle_input(event)
 
 func update(delta):
-	trail.start_emitting()
 	
-	
-	if sprite.flip_h == false:
-		trail.flip_h = false
-		player.velocity.x = DASH_VELOCITY
-	else:
-		trail.flip_h = true
-		player.velocity.x = -DASH_VELOCITY
 	
 	dash_time_count += delta
 	if dash_time_count >= DASH_DURATION:

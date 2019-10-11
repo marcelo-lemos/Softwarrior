@@ -5,13 +5,6 @@ func handle_input(event):
 		emit_signal("finished", "dash")
 	check_sprite_dir(event)
 	.handle_input(event)
-
-func get_input_direction():
-	var input_direction = Vector2()
-	input_direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	input_direction.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-
-	return input_direction
 	
 func update(delta):
 	player.velocity.y += GRAVITY

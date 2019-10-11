@@ -11,6 +11,8 @@ func _physics_process(delta):
 	if(!is_emitting):
 		if(modulate.a > 0):
 			modulate.a -= 0.05
+		else:
+			emitting = false
 
 func stop_emitting():
 	is_emitting = false
@@ -22,6 +24,8 @@ func _on_Timer_timeout():
 	emitting = false
 
 func start_emitting():
+	#emitting = false
+	restart()
 	modulate.a = 1
 	emitting = true
 	is_emitting = true
