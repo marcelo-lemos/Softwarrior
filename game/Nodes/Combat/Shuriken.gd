@@ -15,10 +15,9 @@ func _physics_process(delta):
 	if collision_info:
 		queue_free()
 
-
 func is_outside_view_bounds():
-	return position.x > OS.get_screen_size().x or position.x < 0.0 \
-		or position.y > OS.get_screen_size().y or position.y < 0.0
+	return position.x > OS.get_screen_size().x \
+		or position.y > OS.get_screen_size().y
 
 
 func _draw():

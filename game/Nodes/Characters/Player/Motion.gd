@@ -2,7 +2,10 @@ extends "PlayerBaseState.gd"
 
 func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
+		player.katana._change_state(0)
 		emit_signal("finished", "dash")
+#	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
+#		player.fire()
 	check_sprite_dir(event)
 	.handle_input(event)
 	
@@ -50,8 +53,3 @@ func cap_velocity(current_velocity, max_velocity):
 	if current_velocity < -max_velocity:
 		return -max_velocity
 	return current_velocity
-	
-	
-	
-	
-	

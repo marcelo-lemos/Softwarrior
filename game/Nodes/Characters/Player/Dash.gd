@@ -26,7 +26,6 @@ func enter():
 	.enter()
 
 func exit():
-	
 	trail.stop_emitting()
 	print("Exiting DASH")
 	.exit()
@@ -35,11 +34,11 @@ func handle_input(event):
 	if event.is_action_pressed("jump") and ground_dash:
 		player.velocity.y = JUMP_FORCE
 		emit_signal("finished", "mid_air")
+	if event.is_action_pressed("attack"):
+		emit_signal("finished", "attack")
 	return .handle_input(event)
 
 func update(delta):
-	
-	
 	dash_time_count += delta
 	if dash_time_count >= DASH_DURATION:
 		emit_signal("finished", "previous")

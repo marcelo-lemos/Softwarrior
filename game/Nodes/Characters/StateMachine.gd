@@ -44,6 +44,10 @@ func _change_state(state_name):
 		states_stack[0] = states_map[state_name]
 	
 	current_state = states_stack[0]
-	
+
 	if state_name != "previous":
 		current_state.enter()
+	elif current_state == $Attack:
+		_change_state("previous")
+		
+		

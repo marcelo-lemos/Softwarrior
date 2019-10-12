@@ -5,8 +5,6 @@ const MOVE_ACCELERATION = 30
 const MAX_MOVE_SPEED = 250
 const GROUND_SLOWDOWN = 35
 
-
-
 func enter():
 	print("Entering MOVE")
 	sprite.play("Run")
@@ -19,6 +17,9 @@ func handle_input(event):
 	if event.is_action_pressed("jump") and body.is_on_floor():
 		player.velocity.y = JUMP_FORCE
 		emit_signal("finished", "mid_air")
+	if event.is_action_pressed("attack"):
+		player.velocity.x = 0
+		emit_signal("finished", "attack")
 	return .handle_input(event)
 
 func update(delta):
