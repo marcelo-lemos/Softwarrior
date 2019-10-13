@@ -24,7 +24,6 @@ tile_data = PoolIntArray( -262145, 5, 0, -327680, 536870912, 0, -196609, 5, 0, -
 position = Vector2( 240.193, -87.098 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 100
 
 [node name="Pause" type="Control" parent="CanvasLayer"]
@@ -38,6 +37,40 @@ script = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.352941 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -46.0
+margin_right = 44.0
+margin_bottom = 46.0
+size_flags_horizontal = 5
+custom_constants/separation = 15
+
+[node name="Button" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
+margin_right = 88.0
+margin_bottom = 20.0
+text = "RESUME"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
+margin_top = 35.0
+margin_right = 88.0
+margin_bottom = 55.0
+text = "OPTIONS"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
+margin_top = 70.0
+margin_right = 88.0
+margin_bottom = 90.0
+text = "TITLE MENU"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "QUIT"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_base_offset = Vector2( 1, 0 )
@@ -92,4 +125,7 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
-
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
