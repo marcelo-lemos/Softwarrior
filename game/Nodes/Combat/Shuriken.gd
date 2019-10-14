@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var direction = Vector2()
+var damage = 1
 export(float) var SPEED = 1000.0
 
 func _ready():
@@ -22,4 +23,9 @@ func is_outside_view_bounds():
 
 func _draw():
 	print("AÍ DESENHOU")
-	draw_circle(direction, $CollisionShape2D.shape.radius, Color('#ffffff'))
+	draw_circle(direction, $Area2D/CollisionShape2D.shape.radius, Color('#ffffff'))
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(damage)
+		queue_free()

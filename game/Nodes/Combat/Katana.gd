@@ -78,15 +78,7 @@ func set_attack_input_listening():
 # use with AnimationPlayer func track
 func set_ready_for_next_attack():
 	ready_for_next_attack = true
-
-func _on_body_entered(body):
-	if not body.has_node('Health'):
-		return
-	if body.get_rid().get_id() in hit_objects:
-		return
-	hit_objects.append(body.get_rid().get_id())
-	body.take_damage(self, attack_current['damage'])
-
+	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if not attack_current:
 		return
@@ -95,3 +87,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	else:
 		_change_state(STATES.IDLE)
 		emit_signal("attack_finished")
+
+
+func _on_Katana_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(attack_current['damage'])

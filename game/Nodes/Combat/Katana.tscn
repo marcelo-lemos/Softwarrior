@@ -173,4 +173,5 @@ anims/idle = SubResource( 5 )
 position = Vector2( -18.9325, 7.8041 )
 texture = ExtResource( 2 )
 
+[connection signal="body_entered" from="." to="." method="_on_Katana_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
