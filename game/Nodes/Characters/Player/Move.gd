@@ -19,7 +19,7 @@ func handle_input(event):
 		emit_signal("finished", "mid_air")
 	if event.is_action_pressed("attack"):
 		player.velocity.x = 0
-		emit_signal("finished", "attack")
+		emit_signal("finished", "ground_attack")
 	return .handle_input(event)
 
 func update(delta):

@@ -1,78 +1,79 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Nodes/Characters/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDash1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDash2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDash3.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDash4.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle3.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle4.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle5.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/MC/PlayerIdle6.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/MC/PlayerWall1.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/MC/PlayerWall2.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/MC/PlayerWall3.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun1.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun2.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun3.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun4.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun5.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun6.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun7.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun8.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun9.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun10.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Sprites/MC/PlayerRun11.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Sprites/MC/playerJumpDown.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Sprites/MC/playerJumpUp.png" type="Texture" id=28]
-[ext_resource path="res://Nodes/Combat/Katanada.gd" type="Script" id=29]
-[ext_resource path="res://Nodes/Combat/shurikenShots.gd" type="Script" id=30]
-[ext_resource path="res://Nodes/Combat/Katana.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Assets/Sprites/MC/playerJumpDown.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/MC/PlayerWall1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/MC/PlayerWall2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/MC/PlayerWall3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun4.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun5.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun6.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun7.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun8.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun9.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun10.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/MC/PlayerRun11.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/MC/playerJumpUp.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle1.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle3.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle4.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle5.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/MC/PlayerIdle6.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDash1.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDash2.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDash3.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDash4.png" type="Texture" id=28]
+[ext_resource path="res://Nodes/Combat/Melee.gd" type="Script" id=29]
+[ext_resource path="res://Nodes/Combat/Katana.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Nodes/Combat/shurikenShots.gd" type="Script" id=31]
 [ext_resource path="res://Nodes/Characters/Player/PlayerStateMachine.gd" type="Script" id=32]
 [ext_resource path="res://Nodes/Characters/Player/Move.gd" type="Script" id=33]
 [ext_resource path="res://Nodes/Characters/Player/Dash.gd" type="Script" id=34]
 [ext_resource path="res://Nodes/Characters/Player/MidAir.gd" type="Script" id=35]
 [ext_resource path="res://Nodes/Characters/Player/OnWall.gd" type="Script" id=36]
 [ext_resource path="res://Nodes/Characters/Player/Attack.gd" type="Script" id=37]
-[ext_resource path="res://Nodes/Characters/Player/TextureEmitter.gd" type="Script" id=38]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrailFlip.png" type="Texture" id=39]
-[ext_resource path="res://Nodes/Characters/Player/CPUParticles2D.gd" type="Script" id=40]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrail.png" type="Texture" id=41]
+[ext_resource path="res://Nodes/Characters/Player/DashAttack.gd" type="Script" id=38]
+[ext_resource path="res://Nodes/Characters/Player/TextureEmitter.gd" type="Script" id=39]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrailFlip.png" type="Texture" id=40]
+[ext_resource path="res://Nodes/Characters/Player/CPUParticles2D.gd" type="Script" id=41]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrail.png" type="Texture" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Dash",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Wall",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "Run",
-"speed": 19.0
-}, {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "JumpDown",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Wall",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Run",
+"speed": 19.0
+}, {
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "JumpUp",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "Dash",
+"speed": 12.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -100,12 +101,12 @@ shape = SubResource( 2 )
 [node name="MeleeAttack" type="Node2D" parent="GenericCharacter"]
 script = ExtResource( 29 )
 
-[node name="RangedAttack" type="Node2D" parent="GenericCharacter"]
-script = ExtResource( 30 )
-
-[node name="Katana" parent="GenericCharacter" instance=ExtResource( 31 )]
+[node name="Katana" parent="GenericCharacter/MeleeAttack" instance=ExtResource( 30 )]
 position = Vector2( -2.14043, 4.75652 )
 scale = Vector2( 0.567981, 0.833842 )
+
+[node name="RangedAttack" type="Node2D" parent="GenericCharacter"]
+script = ExtResource( 31 )
 
 [node name="WallDetection" type="Node2D" parent="GenericCharacter"]
 editor/display_folded = true
@@ -152,8 +153,13 @@ script = ExtResource( 35 )
 [node name="OnWall" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 36 )
 
-[node name="Attack" type="Node" parent="GenericCharacter/StateMachine"]
+[node name="GroundAttack" type="Node" parent="GenericCharacter/StateMachine"]
 script = ExtResource( 37 )
+
+[node name="DashAttack" type="Node" parent="GenericCharacter/StateMachine"]
+script = ExtResource( 38 )
+
+[node name="AirAttack" type="Node" parent="GenericCharacter/StateMachine"]
 
 [node name="Camera2D" type="Camera2D" parent="GenericCharacter"]
 current = true
@@ -162,7 +168,7 @@ limit_bottom = 0
 
 [node name="TextureEmitter" type="Node2D" parent="GenericCharacter"]
 show_behind_parent = true
-script = ExtResource( 38 )
+script = ExtResource( 39 )
 
 [node name="Flip" type="CPUParticles2D" parent="GenericCharacter/TextureEmitter"]
 show_behind_parent = true
@@ -170,10 +176,10 @@ emitting = false
 amount = 10
 lifetime = 0.5
 local_coords = false
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 gravity = Vector2( -50, 0 )
 color_ramp = SubResource( 3 )
-script = ExtResource( 40 )
+script = ExtResource( 41 )
 
 [node name="Timer" type="Timer" parent="GenericCharacter/TextureEmitter/Flip"]
 wait_time = 0.15
@@ -185,15 +191,18 @@ emitting = false
 amount = 10
 lifetime = 0.5
 local_coords = false
-texture = ExtResource( 41 )
+texture = ExtResource( 42 )
 gravity = Vector2( 50, 0 )
 color_ramp = SubResource( 3 )
-script = ExtResource( 40 )
+script = ExtResource( 41 )
 
 [node name="Timer" type="Timer" parent="GenericCharacter/TextureEmitter/Default"]
 wait_time = 0.15
 one_shot = true
+[connection signal="animation_finished" from="GenericCharacter/MeleeAttack/Katana/AnimationPlayer" to="GenericCharacter/MeleeAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Flip/Timer" to="GenericCharacter/TextureEmitter/Flip" method="_on_Timer_timeout"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Default/Timer" to="GenericCharacter/TextureEmitter/Default" method="_on_Timer_timeout"]
 
 [editable path="GenericCharacter"]
+
+[editable path="GenericCharacter/MeleeAttack/Katana"]

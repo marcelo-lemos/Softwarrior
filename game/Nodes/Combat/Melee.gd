@@ -1,6 +1,8 @@
-extends Area2D
+extends Node2D
 
 signal attack_finished
+
+onready var katana = get_node("Katana")
 
 enum STATES { IDLE, ATTACK }
 var state = null
@@ -30,7 +32,6 @@ var hit_objects = []
 func _ready():
 	#$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
 	self.connect("body_entered", self, "_on_body_entered")
-	print("lixo ready")
 	_change_state(STATES.IDLE)
 
 func _change_state(new_state):
@@ -43,15 +44,19 @@ func _change_state(new_state):
 	match new_state:
 		STATES.IDLE:
 			combo_count = 0
-			$AnimationPlayer.stop()
-			visible = false
-			monitoring = false
+			katana.idle()
+			#$AnimationPlayer.stop()
+			#visible = false
+			#monitoring = false
 		STATES.ATTACK:
-			attack_current = combo[combo_count -1]
-			$AnimationPlayer.play(attack_current['animation'])
-			visible = true
-			monitoring = true
-			print(attack_current)
+			if combo_count <= MAX_COMBO_COUNT:
+				attack_current = combo[combo_count -1]
+				katana.attack(attack_current)
+			
+			#$AnimationPlayer.play(attack_current['animation'])
+			#visible = true
+			#monitoring = true
+			#print(attack_current)
 	state = new_state
 
 func _input(event):
@@ -65,6 +70,7 @@ func _input(event):
 func _physics_process(delta):
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
 		print("attaque")
+		print("aaaaaaa")
 		attack()
 
 func attack():
@@ -83,6 +89,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if not attack_current:
 		return
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
+		print("Asad")
 		attack()
 	else:
 		_change_state(STATES.IDLE)
@@ -91,3 +98,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func _on_Katana_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(attack_current['damage'])
+

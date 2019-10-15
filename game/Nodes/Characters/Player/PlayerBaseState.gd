@@ -11,6 +11,7 @@ onready var wallDetection = body.get_node("WallDetection")
 onready var trail = body.get_node("TextureEmitter")
 onready var animation = body.get_node("AnimationPlayer")
 onready var shuriken_spawner = body.get_node("RangedAttack")
+
 func enter():
 	pass
 

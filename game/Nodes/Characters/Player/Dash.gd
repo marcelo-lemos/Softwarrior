@@ -35,7 +35,7 @@ func handle_input(event):
 		player.velocity.y = JUMP_FORCE
 		emit_signal("finished", "mid_air")
 	if event.is_action_pressed("attack"):
-		emit_signal("finished", "attack")
+		emit_signal("finished", "dash_attack")
 	return .handle_input(event)
 
 func update(delta):

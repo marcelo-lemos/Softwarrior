@@ -2,7 +2,7 @@ extends "PlayerBaseState.gd"
 
 func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
-		player.katana._change_state(0)
+		#player.katana._change_state(0)
 		emit_signal("finished", "dash")
 
 	if event.is_action_pressed("fire") and player.shuriken_shots > 0:

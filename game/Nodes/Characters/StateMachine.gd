@@ -47,7 +47,5 @@ func _change_state(state_name):
 
 	if state_name != "previous":
 		current_state.enter()
-	elif current_state == $Attack:
-		_change_state("previous")
 		
 		
