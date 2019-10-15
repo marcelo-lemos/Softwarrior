@@ -4,8 +4,14 @@ func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
 		player.katana._change_state(0)
 		emit_signal("finished", "dash")
-#	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
-#		player.fire()
+
+	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
+		player.shuriken_shots -= 0
+		if player.going_right:
+			shuriken_spawner.fire(Vector2(1, 0))
+		else:
+			shuriken_spawner.fire(Vector2(-1, 0))
+			
 	check_sprite_dir(event)
 	.handle_input(event)
 	

@@ -92,8 +92,7 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-autoplay = true
+volume_db = -12.117
 
 [node name="Retard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 604.777, -278.192 )
-

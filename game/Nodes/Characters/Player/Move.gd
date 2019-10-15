@@ -1,9 +1,9 @@
 extends "Motion.gd"
 
-const MOVE_SPEED = 250
-const MOVE_ACCELERATION = 30
+
+const MOVE_ACCELERATION = 25
 const MAX_MOVE_SPEED = 250
-const GROUND_SLOWDOWN = 35
+const GROUND_SLOWDOWN = 25
 
 func enter():
 	print("Entering MOVE")
