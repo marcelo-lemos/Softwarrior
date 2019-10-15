@@ -73,12 +73,28 @@ frames = SubResource( 3 )
 [node name="Selector" type="AnimatedSprite" parent="."]
 position = Vector2( 9.02637, -8.17777 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="Tween" type="Tween" parent="."]
 
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 483.0
+margin_top = -65.0
+margin_right = 526.0
+margin_bottom = -45.0
+text = "SAVE"
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 480.0
+margin_top = -28.0
+margin_right = 529.0
+margin_bottom = -8.0
+text = "LOAD"
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
 
 [editable path="Stage 1"]
 
