@@ -52,7 +52,7 @@ func _change_state(new_state):
 			if combo_count <= MAX_COMBO_COUNT:
 				attack_current = combo[combo_count -1]
 				katana.attack(attack_current)
-			
+
 			#$AnimationPlayer.play(attack_current['animation'])
 			#visible = true
 			#monitoring = true
@@ -69,8 +69,6 @@ func _input(event):
 
 func _physics_process(delta):
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
-		print("attaque")
-		print("aaaaaaa")
 		attack()
 
 func attack():
@@ -89,7 +87,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if not attack_current:
 		return
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
-		print("Asad")
 		attack()
 	else:
 		_change_state(STATES.IDLE)

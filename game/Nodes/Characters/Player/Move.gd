@@ -11,8 +11,9 @@ func enter():
 	.enter()
 
 func exit():
-	print("Exiting MOVE")
-
+	#print("Exiting MOVE")
+	pass
+	
 func handle_input(event):
 	if event.is_action_pressed("jump") and body.is_on_floor():
 		player.velocity.y = JUMP_FORCE

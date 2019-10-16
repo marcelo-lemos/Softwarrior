@@ -1,20 +1,20 @@
-extends "res://Nodes/Characters/Player/Move.gd"
+extends "PlayerBaseState.gd"
 
 func enter():
-	player.melee.connect("attack_finished", self, "_on_Katana_attack_finished")
-	print("Entered KATANA")
+	player.melee.connect("attack_finished", self, "_on_MeleeAttack_attack_finished")
+	print("Entered ATTACK")
 	player.melee.attack()
-	player.katana.get_node("AnimationPlayer").play("attack")
+	#player.katana.get_node("AnimationPlayer").play("attack")
 	.enter()
 
 func exit():
-	print("Exiting KATANA")
+	print("Exiting ATTACK")
 	.exit()
 
 func handle_input(event):
-	if event.is_action_pressed("jump") and body.is_on_floor():
-		player.melee._change_state(0)
-		emit_signal("finished", "mid_air")
+	#if event.is_action_pressed("jump") and body.is_on_floor():
+		#player.melee._change_state(0)
+		#emit_signal("finished", "mid_air")
 	return .handle_input(event)
 
 func update(delta):
@@ -22,5 +22,5 @@ func update(delta):
 		player.velocity.x = 0
 	.update(delta)
 
-func _on_Katana_attack_finished():
+func _on_MeleeAttack_attack_finished():
 	emit_signal("finished", "previous")

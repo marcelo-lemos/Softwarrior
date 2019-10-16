@@ -28,11 +28,11 @@ func handle_input(event):
 			else:
 				player.velocity.x = -WALL_JUMP_HORIZONTAL
 			player.velocity.y = WALL_JUMP_HEIGHT
-			emit_signal("finished", "mid_air")
+			emit_signal("finished", "previous")
 		else:
 			player.velocity.x = WALL_JUMP_HORIZONTAL
 			player.velocity.y = WALL_JUMP_HEIGHT
-			emit_signal("finished", "mid_air")
+			emit_signal("finished", "previous")
 
 	.handle_input(event)
 
@@ -41,7 +41,7 @@ func update(delta):
 	player.velocity.y = WALL_SLIDE_VELOCITY
 	
 	if body.is_on_floor():
-		emit_signal("finished", "move")
+		emit_signal("finished", "previous")
 	
 	elif player.going_right and !check_wall_right():
 		emit_signal("finished", "mid_air")

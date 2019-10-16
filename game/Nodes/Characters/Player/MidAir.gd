@@ -9,10 +9,11 @@ const SECOND_JUMP_HEIGHT = -250
 var jump_var_height = 100
 
 func enter():
-	print("Entered AIR")
+	pass
+	#print("Entered AIR")
 
 func exit():
-	print("Exiting AIR")
+	#print("Exiting AIR")
 	.exit()
 
 func handle_input(event):
@@ -23,7 +24,7 @@ func handle_input(event):
 
 func update(delta):
 	if body.is_on_floor():
-		emit_signal("finished", "move")
+		emit_signal("finished", "previous")
 	
 	if (player.velocity.y < 25 and player.velocity.y > -25) or player.velocity.y > 50:
 		if check_wall_left() and get_input_direction()[0] < 0 and player.velocity.x <= 0:
