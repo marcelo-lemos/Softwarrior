@@ -1,4 +1,4 @@
-extends "res://Nodes/Characters/Player/Attack.gd"
+extends "PlayerBaseState.gd"
 
 # Declare member variables here. Examples:
 # var a = 2

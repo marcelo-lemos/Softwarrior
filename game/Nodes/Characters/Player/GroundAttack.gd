@@ -2,13 +2,14 @@ extends "PlayerBaseState.gd"
 
 func enter():
 	player.melee.connect("attack_finished", self, "_on_MeleeAttack_attack_finished")
-	print("Entered ATTACK")
+	print("Entered GROUND_ATTACK")
 	player.melee.attack()
+	sprite.play("Idle")
 	#player.katana.get_node("AnimationPlayer").play("attack")
 	.enter()
 
 func exit():
-	print("Exiting ATTACK")
+	print("Exiting GROUND_ATTACK")
 	.exit()
 
 func handle_input(event):

@@ -4,7 +4,7 @@ signal attack_finished
 
 onready var katana = get_node("Katana")
 
-enum STATES { IDLE, ATTACK }
+enum STATES { IDLE, GROUND_ATTACK, AIR_ATTACK, DASH_ATTACK }
 var state = null
 
 enum ATTACK_INPUT_STATES { IDLE, LISTENING, REGISTERED }
@@ -30,13 +30,12 @@ var combo = [{
 var hit_objects = []
 
 func _ready():
-	#$AnimationPlayer.connect('animation_finished', self, "_on_animation_finished")
 	self.connect("body_entered", self, "_on_body_entered")
 	_change_state(STATES.IDLE)
 
 func _change_state(new_state):
 	match state:
-		STATES.ATTACK:
+		STATES.GROUND_ATTACK, STATES.AIR_ATTACK, STATES.DASH_ATTACK:
 			hit_objects = []
 			attack_input_state = ATTACK_INPUT_STATES.IDLE
 			ready_for_next_attack = false
@@ -45,22 +44,16 @@ func _change_state(new_state):
 		STATES.IDLE:
 			combo_count = 0
 			katana.idle()
-			#$AnimationPlayer.stop()
-			#visible = false
-			#monitoring = false
-		STATES.ATTACK:
+
+		STATES.GROUND_ATTACK:
 			if combo_count <= MAX_COMBO_COUNT:
 				attack_current = combo[combo_count -1]
-				katana.attack(attack_current)
+				katana.ground_attack(attack_current)
 
-			#$AnimationPlayer.play(attack_current['animation'])
-			#visible = true
-			#monitoring = true
-			#print(attack_current)
 	state = new_state
 
 func _input(event):
-	if not state == STATES.ATTACK:
+	if not state == STATES.GROUND_ATTACK:
 		return
 	if attack_input_state != ATTACK_INPUT_STATES.LISTENING:
 		return
@@ -73,7 +66,7 @@ func _physics_process(delta):
 
 func attack():
 	combo_count += 1
-	_change_state(STATES.ATTACK)
+	_change_state(STATES.GROUND_ATTACK)
 
 # use with AnimationPlayer func track
 func set_attack_input_listening():

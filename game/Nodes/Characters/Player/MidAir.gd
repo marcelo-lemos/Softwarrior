@@ -23,30 +23,29 @@ func handle_input(event):
 	.handle_input(event)
 
 func update(delta):
+	.update(delta)
 	if body.is_on_floor():
 		emit_signal("finished", "previous")
 	
 	if (player.velocity.y < 25 and player.velocity.y > -25) or player.velocity.y > 50:
-		if check_wall_left() and get_input_direction()[0] < 0 and player.velocity.x <= 0:
+		if check_wall_left() and input_direction < 0 and player.velocity.x <= 0:
 			emit_signal("finished", "on_wall")
-		elif check_wall_right() and get_input_direction()[0] > 0 and player.velocity.x >= 0:
+		elif check_wall_right() and input_direction > 0 and player.velocity.x >= 0:
 			emit_signal("finished", "on_wall")
 			
 	if player.velocity.y < 0:
 		sprite.play("JumpUp")
 	else:
 		sprite.play("JumpDown")
-		
-	var input_direction = get_input_direction()
+	
 	if input_direction:
-		player.velocity.x += input_direction[0] * AIR_ACCELERATION
+		player.velocity.x += input_direction * AIR_ACCELERATION
 	elif player.velocity.x != 0:
 		apply_air_slowdown()
 	player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	if(Input.is_action_just_released("jump")):
 		check_jump_cut(jump_var_height)
 	
-	.update(delta)
 
 func check_jump_cut(jump_height):
 	if player.velocity.y < -jump_height:

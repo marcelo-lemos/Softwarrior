@@ -15,8 +15,14 @@ func idle():
 	visible = false
 	monitoring = false
 	
-func attack(attack_current):
+func ground_attack(attack_current):
 	animation_player.play(attack_current['animation'])
 	visible = true
 	monitoring = true
 	print(attack_current)
+	
+func air_attack():
+	pass
+
+func dash_attack():
+	pass

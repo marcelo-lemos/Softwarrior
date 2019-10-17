@@ -16,14 +16,12 @@ func exit():
 	print("Exiting ONWALL")
 
 func handle_input(event):
-	var inputH = get_input_direction()[0]
-
-	if (check_wall_right() and inputH < 0) or (check_wall_left() and inputH > 0):
+	if (check_wall_right() and input_direction < 0) or (check_wall_left() and input_direction > 0):
 		emit_signal("finished", "mid_air")
 	
 	if event.is_action_pressed("jump"):
 		if player.going_right:
-			if(inputH == 0):
+			if(input_direction == 0):
 				player.velocity.x = 3 * -WALL_JUMP_HORIZONTAL
 			else:
 				player.velocity.x = -WALL_JUMP_HORIZONTAL

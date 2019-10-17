@@ -3,7 +3,7 @@ extends "Motion.gd"
 
 const MOVE_ACCELERATION = 25
 const MAX_MOVE_SPEED = 250
-const GROUND_SLOWDOWN = 25
+const GROUND_SLOWDOWN = 50
 
 func enter():
 	print("Entering MOVE")
@@ -24,13 +24,12 @@ func handle_input(event):
 	return .handle_input(event)
 
 func update(delta):
+	.update(delta)
 	player.has_dash = true
 	player.has_double_jump = true
 	
-	var input_direction = get_input_direction()
-	
 	if input_direction:
-		player.velocity.x += get_input_direction()[0] * MOVE_ACCELERATION
+		player.velocity.x += input_direction * MOVE_ACCELERATION
 		player.velocity.x = cap_velocity(player.velocity.x, MAX_MOVE_SPEED)
 		sprite.play("Run")
 	elif player.velocity.x != 0:
@@ -41,7 +40,6 @@ func update(delta):
 		
 	if !body.is_on_floor():
 		emit_signal("finished", "mid_air")
-	.update(delta)
 
 func apply_ground_slowdown():
 	if player.velocity.x > 0:
