@@ -16,8 +16,9 @@ func exit():
 	print("Exiting ONWALL")
 
 func handle_input(event):
-	if (check_wall_right() and input_direction < 0) or (check_wall_left() and input_direction > 0):
-		emit_signal("finished", "mid_air")
+	if input_direction:
+		if (check_wall_right() and input_direction < 0) or (check_wall_left() and input_direction > 0):
+			emit_signal("finished", "previous")
 	
 	if event.is_action_pressed("jump"):
 		if player.going_right:
@@ -39,7 +40,7 @@ func update(delta):
 	player.velocity.y = WALL_SLIDE_VELOCITY
 	
 	if body.is_on_floor():
-		emit_signal("finished", "previous")
+		emit_signal("finished", "move")
 	
 	elif player.going_right and !check_wall_right():
 		emit_signal("finished", "mid_air")

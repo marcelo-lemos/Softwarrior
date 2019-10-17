@@ -16,7 +16,7 @@ func _change_state(state_name):
 		return
 
 	if state_name in ["mid_air", "dash", "ground_attack", "air_attack"]:
-		#print(">>>>> " + states_map[state_name].name)
+		print(">>>>> " + states_map[state_name].name)
 		states_stack.push_front(states_map[state_name])
 
 	._change_state(state_name)

@@ -12,7 +12,7 @@ func enter():
 	else:
 		ground_dash = false
 	
-	#print("Entering DASH")
+	print("Entering DASH")
 	
 	player.velocity.y = 0.0
 	sprite.play("Dash")
@@ -30,7 +30,7 @@ func enter():
 
 func exit():
 	trail.stop_emitting()
-	#print("Exiting DASH")
+	print("Exiting DASH")
 	.exit()
 
 func handle_input(event):
