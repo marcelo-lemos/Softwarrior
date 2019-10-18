@@ -17,19 +17,13 @@ func idle():
 	animation_player.stop()
 	hit_box.visible = false
 	hit_box.monitoring = false
-	
-func ground_attack(attack_current):
+
+func attack(attack_current):
 	current_attack = attack_current
 	animation_player.play(attack_current['animation'])
 	visible = true
 	hit_box.monitoring = true
 	print(attack_current)
-	
-func air_attack():
-	pass
-
-func dash_attack():
-	pass
 
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("enemy"):
@@ -37,6 +31,5 @@ func _on_HitBox_body_entered(body):
 
 func animation_player_method_call(function_name):
 	match function_name:
-		"set_attack_input_listening":
-			emit_signal(function_name)
-			
+		"set_attack_input_listening", "set_ready_for_next_attack":
+			emit_signal(function_name)		

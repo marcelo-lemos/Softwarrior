@@ -20,6 +20,10 @@ func handle_input(event):
 	if event.is_action_pressed("jump") and player.has_double_jump:
 		player.velocity.y = SECOND_JUMP_HEIGHT
 		player.has_double_jump = false
+	
+	if event.is_action_pressed("attack"):
+		emit_signal("finished", "air_attack")
+	
 	.handle_input(event)
 
 func update(delta):
@@ -45,7 +49,6 @@ func update(delta):
 	player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	if(Input.is_action_just_released("jump")):
 		check_jump_cut(jump_var_height)
-	
 
 func check_jump_cut(jump_height):
 	if player.velocity.y < -jump_height:

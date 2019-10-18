@@ -27,20 +27,17 @@ var combo = [{
 		'animation': 'ground_attack3',
 	}]
 
-var hit_objects = []
+#var hit_objects = []
 
 func enter():
-	player.katana.connect("attack_finished", self, "_on_MeleeAttack_attack_finished")
 	player.katana.connect("set_attack_input_listening", self, "set_attack_input_listening")
 	player.katana.connect("set_ready_for_next_attack", self, "set_ready_for_next_attack")
 	print("Entered GROUND_ATTACK")
 	sprite.play("Idle")
 	attack()
-	.enter()
 	
 func exit():
 	print("Exiting GROUND_ATTACK")
-	.exit()
 
 func _ready():
 	self.connect("body_entered", self, "_on_body_entered")
@@ -49,7 +46,7 @@ func _ready():
 func _change_state(new_state):
 	match state:
 		STATES.GROUND_ATTACK:
-			hit_objects = []
+			#hit_objects = []
 			attack_input_state = ATTACK_INPUT_STATES.IDLE
 			ready_for_next_attack = false
 
@@ -61,7 +58,7 @@ func _change_state(new_state):
 		STATES.GROUND_ATTACK:
 			if combo_count <= MAX_COMBO_COUNT:
 				attack_current = combo[combo_count -1]
-				katana.ground_attack(attack_current)
+				katana.attack(attack_current)
 
 	state = new_state
 
@@ -91,18 +88,16 @@ func set_ready_for_next_attack():
 	ready_for_next_attack = true
 	
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if not attack_current:
-		return
-	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
-		attack()
-	else:
-		_change_state(STATES.IDLE)
-		emit_signal("finished", "previous")
+	if anim_name in ['ground_attack1', 'ground_attack2', 'ground_attack3']:
+		if not attack_current:
+			return
+		if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
+			attack()
+		else:
+			_change_state(STATES.IDLE)
+			emit_signal("finished", "previous")
 
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(attack_current['damage'])
-		
-func _on_MeleeAttack_attack_finished():
-	emit_signal("finished", "previous")
 
