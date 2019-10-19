@@ -13,6 +13,9 @@ var apply_gravity = true
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
+var shuriken_shots = 4
+var shuriken = preload("res://Nodes/Combat/Shuriken.tscn")
+onready var katana = body.get_node("Katana")
 
 func _process(delta):
 	velocity = body.move_and_slide(velocity, NORMAL)

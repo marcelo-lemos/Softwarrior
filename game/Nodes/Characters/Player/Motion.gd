@@ -1,28 +1,36 @@
 extends "PlayerBaseState.gd"
 
+var input_direction
+
 func handle_input(event):
 	if event.is_action_pressed("dash") and player.has_dash:
+		#player.katana._change_state(0)
 		emit_signal("finished", "dash")
-	check_sprite_dir(event)
+
+	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
+		player.shuriken_shots -= 0
+		if player.going_right:
+			shuriken_spawner.fire(Vector2(1, 0))
+		else:
+			shuriken_spawner.fire(Vector2(-1, 0))
+			
 	.handle_input(event)
 	
 func update(delta):
+	input_direction = get_input_direction()[0]
 	player.velocity.y += GRAVITY
-	check_direction()
+	check_direction(input_direction)
 
-func check_direction():
-	if player.velocity.x > 0:
-		player.going_right = true
-	elif player.velocity.x < 0:
-		player.going_right = false
-
-func check_sprite_dir(event):
-	var input_direction = get_input_direction()[0]
-	
-	if input_direction > 0:
-		sprite.flip_h = false
-	elif input_direction < 0:
-		sprite.flip_h = true
+func check_direction(input_direction):
+	if input_direction:
+		if input_direction > 0:
+			player.going_right = true
+			sprite.flip_h = false
+			player.katana.set_scale(Vector2(1,1))
+		elif input_direction < 0:
+			player.going_right = false
+			sprite.flip_h = true
+			player.katana.set_scale(Vector2(-1,1))
 
 func check_wall():
 	for raycast in wallDetection.get_children():
@@ -50,8 +58,3 @@ func cap_velocity(current_velocity, max_velocity):
 	if current_velocity < -max_velocity:
 		return -max_velocity
 	return current_velocity
-	
-	
-	
-	
-	

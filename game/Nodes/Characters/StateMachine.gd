@@ -36,14 +36,18 @@ func _physics_process(delta):
 func _change_state(state_name):
 	if not _active:
 		return
+		
 	current_state.exit()
 	
 	if state_name == "previous":
-		states_stack.pop_front()
+		var previous_state = states_stack.pop_front()
+		print("<<<<< " +  previous_state.name)
 	else:
 		states_stack[0] = states_map[state_name]
 	
 	current_state = states_stack[0]
-	
+
+	print(states_stack)
+
 	if state_name != "previous":
 		current_state.enter()

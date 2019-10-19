@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Sprites/Map/background4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Map/background1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Nodes/Characters/Enemies/Retard.tscn" type="PackedScene" id=9]
 
 [node name="TestScene" type="Node"]
 
@@ -81,7 +82,7 @@ motion_scale = Vector2( 2, 1 )
 motion_mirroring = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 0, -40 )
+position = Vector2( 23.3268, -32.5178 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
