@@ -40,7 +40,7 @@ func update(delta):
 	player.velocity.y = WALL_SLIDE_VELOCITY
 	
 	if body.is_on_floor():
-		emit_signal("finished", "move")
+		emit_signal("finished", "previous")
 	
 	elif player.going_right and !check_wall_right():
 		emit_signal("finished", "mid_air")
