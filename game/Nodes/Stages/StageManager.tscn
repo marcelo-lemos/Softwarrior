@@ -4,4 +4,3 @@
 
 [node name="StageManager" type="Node"]
 script = ExtResource( 1 )
-

@@ -53,3 +53,11 @@ func _on_Tween_tween_completed(object, key):
 func enter_stage():
 	if(current_stage.stage_scene != null):
 		get_tree().change_scene(current_stage.stage_scene.resource_path)
+
+
+func _on_Button_pressed():
+	StageManager.save()
+
+
+func _on_Button2_pressed():
+	StageManager.load_()
