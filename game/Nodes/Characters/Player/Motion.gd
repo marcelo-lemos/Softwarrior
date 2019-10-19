@@ -26,9 +26,11 @@ func check_direction(input_direction):
 		if input_direction > 0:
 			player.going_right = true
 			sprite.flip_h = false
+			player.katana.set_scale(Vector2(1,1))
 		elif input_direction < 0:
 			player.going_right = false
 			sprite.flip_h = true
+			player.katana.set_scale(Vector2(-1,1))
 
 func check_wall():
 	for raycast in wallDetection.get_children():

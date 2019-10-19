@@ -3,7 +3,7 @@
 [ext_resource path="res://Nodes/Combat/Katana.gd" type="Script" id=1]
 [ext_resource path="res://Nodes/Combat/KatanaHitBox.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "air_attack"
 length = 0.2
 step = 0.05
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "dash_attack"
 length = 0.2
 tracks/0/type = "value"
@@ -60,8 +60,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "ground_attack1"
+[sub_resource type="Animation" id=3]
 length = 0.4
 step = 0.05
 tracks/0/type = "method"
@@ -118,8 +117,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "ground_attack2"
+[sub_resource type="Animation" id=4]
 length = 0.4
 step = 0.05
 tracks/0/type = "method"
@@ -164,8 +162,7 @@ tracks/2/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "ground_attack3"
+[sub_resource type="Animation" id=5]
 length = 0.25
 step = 0.05
 tracks/0/type = "value"
@@ -192,11 +189,11 @@ script = null
 rotation = 1.5708
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/air_attack = SubResource( 4 )
-anims/dash_attack = SubResource( 5 )
-anims/ground_attack1 = SubResource( 1 )
-anims/ground_attack2 = SubResource( 2 )
-anims/ground_attack3 = SubResource( 3 )
+anims/air_attack = SubResource( 1 )
+anims/dash_attack = SubResource( 2 )
+anims/ground_attack1 = SubResource( 3 )
+anims/ground_attack2 = SubResource( 4 )
+anims/ground_attack3 = SubResource( 5 )
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 
 [editable path="HitBox"]
