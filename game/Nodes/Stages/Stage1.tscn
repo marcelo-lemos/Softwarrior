@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://Assets/Sprites/Map/background4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Map/background1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Nodes/Stages/Collect.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Sprites/strawberry.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
 
 [node name="TestScene" type="Node"]
 
@@ -24,6 +28,7 @@ tile_data = PoolIntArray( -720640, 536870913, 0, -720639, 536870913, 0, -720638,
 position = Vector2( 240.193, -87.098 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = 100
 
 [node name="Pause" type="Control" parent="CanvasLayer"]
@@ -93,7 +98,7 @@ motion_scale = Vector2( 0.3, 0.75 )
 motion_offset = Vector2( 0, 60 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 0, -40 )
+position = Vector2( 1.02667, -40 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
@@ -125,7 +130,24 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="Collectable" type="Node" parent="."]
+
+[node name="Strawberry" type="Area2D" parent="Collectable"]
+position = Vector2( 438.119, -114.888 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectable/Strawberry"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Collectable/Strawberry"]
+scale = Vector2( 0.015, 0.015 )
+texture = ExtResource( 10 )
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
+[connection signal="body_entered" from="Collectable/Strawberry" to="Collectable/Strawberry" method="_on_Area2D_body_entered"]
