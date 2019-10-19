@@ -104,7 +104,15 @@ centered = false
 [node name="Fog" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.282353 )
 material = SubResource( 2 )
-position = Vector2( 313.656, 173.492 )
+position = Vector2( 314.286, 172.862 )
+scale = Vector2( 10.4894, 6.30463 )
+z_index = 1
+texture = ExtResource( 16 )
+
+[node name="Fog2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.282353 )
+material = SubResource( 2 )
+position = Vector2( 314.286, 172.862 )
 scale = Vector2( 10.4894, 6.30463 )
 z_index = 1
 texture = ExtResource( 16 )
@@ -199,5 +207,6 @@ angle_random = 0.2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
 autoplay = true
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/TextureButton3" to="." method="_on_TextureButton3_pressed"]

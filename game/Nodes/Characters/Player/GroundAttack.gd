@@ -17,14 +17,17 @@ var attack_current = {}
 var combo = [{
 		'damage': 1,
 		'animation': 'ground_attack1',
+		'animation_sprite': 'GroundCombo1'
 	},
 	{
 		'damage': 1,
 		'animation': 'ground_attack2',
+		'animation_sprite': 'GroundCombo1'
 	},
 	{
 		'damage': 1,
 		'animation': 'ground_attack3',
+		'animation_sprite': 'GroundCombo1'
 	}]
 
 #var hit_objects = []
@@ -33,7 +36,8 @@ func enter():
 	player.katana.connect("set_attack_input_listening", self, "set_attack_input_listening")
 	player.katana.connect("set_ready_for_next_attack", self, "set_ready_for_next_attack")
 	print("Entered GROUND_ATTACK")
-	sprite.play("Idle")
+	
+	#sprite.play("Idle")
 	attack()
 	
 func exit():
@@ -59,6 +63,9 @@ func _change_state(new_state):
 			if combo_count <= MAX_COMBO_COUNT:
 				attack_current = combo[combo_count -1]
 				katana.attack(attack_current)
+				sprite.frame = 0
+				sprite.play(attack_current['animation_sprite'])
+	
 
 	state = new_state
 
