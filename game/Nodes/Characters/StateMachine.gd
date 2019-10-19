@@ -42,8 +42,6 @@ func _change_state(state_name):
 	if state_name == "previous":
 		var previous_state = states_stack.pop_front()
 		print("<<<<< " +  previous_state.name)
-	else:
-		states_stack[0] = states_map[state_name]
 	
 	current_state = states_stack[0]
 
