@@ -10,9 +10,9 @@ func handle_input(event):
 	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
 		player.shuriken_shots -= 0
 		if player.going_right:
-			shuriken_spawner.fire(Vector2(1, 0))
+			shuriken_spawner.fire(Vector2(1, 0), shuriken)
 		else:
-			shuriken_spawner.fire(Vector2(-1, 0))
+			shuriken_spawner.fire(Vector2(-1, 0), shuriken)
 			
 	.handle_input(event)
 	

@@ -3,13 +3,13 @@ extends KinematicBody2D
 const NORMAL = Vector2()
 
 onready var shooter = get_node("Shooter")
-onready var shot = preload("res://Nodes/Combat/ShooterShotH.tscn")
+onready var shot = preload("res://Nodes/Combat/ShooterShotV.tscn")
 export(float) var speed
 export(float) var move_range
 
 #physics
 var velocity = Vector2()
-var direction = Vector2(1,0)
+var direction = Vector2(0,1)
 
 #control
 var health = 3
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	if is_dead == false:
-		if position.x > move_range or position.x < -move_range:
+		if position.y > move_range or position.y < -move_range:
 			direction *= -1
 			
 		velocity = speed * direction
@@ -28,7 +28,7 @@ func _process(delta):
 			
 		$AnimatedSprite.play("move")
 		
-		if is_on_wall():
+		if is_on_floor() or is_on_ceiling():
 			direction = direction * -1
 
 func die():
@@ -47,5 +47,5 @@ func _on_FreeDeadNode_timeout():
 	queue_free()
 	
 func _on_Shoot_timeout():
-	shooter.fire(Vector2(0, 1), shot)
+	shooter.fire(Vector2(-1, 0), shot)
 	pass

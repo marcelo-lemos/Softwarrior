@@ -1,22 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Enemies/AirShooterH/adler.png.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Combat/genericShooter.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "die",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "move",
@@ -24,9 +14,9 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 21.0529, 10.397 )
+extents = Vector2( 20.4214, 10 )
 
-[node name="AirShooterH" type="Node2D"]
+[node name="AirShooterV" type="Node2D"]
 
 [node name="GenericCharacter" parent="." groups=[
 "enemy",
@@ -43,7 +33,6 @@ animation = "move"
 shape = SubResource( 2 )
 
 [node name="FreeDeadNode" type="Timer" parent="GenericCharacter"]
-one_shot = true
 
 [node name="Shooter" type="Node2D" parent="GenericCharacter"]
 script = ExtResource( 4 )

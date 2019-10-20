@@ -5,6 +5,9 @@ onready var hit_box = get_node("HitBox")
 
 var current_attack = null
 
+signal set_attack_input_listening
+signal set_ready_for_next_attack
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

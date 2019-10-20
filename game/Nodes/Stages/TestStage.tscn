@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/Sprites/Map/background4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Map/background1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.tscn" type="PackedScene" id=10]
 
 [node name="TestScene" type="Node"]
 
@@ -125,7 +127,28 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="AirShooterH" parent="." instance=ExtResource( 9 )]
+position = Vector2( 321.095, -92.8786 )
+
+[node name="GenericCharacter" parent="AirShooterH" index="0"]
+position = Vector2( 9.28534, -37.9151 )
+speed = 100.0
+move_range = 100.0
+
+[node name="AirShooterV" parent="." instance=ExtResource( 10 )]
+position = Vector2( 476.941, -103.577 )
+
+[node name="GenericCharacter" parent="AirShooterV" index="0"]
+speed = 100.0
+move_range = 30.0
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
+
+[editable path="Player"]
+
+[editable path="AirShooterH"]
+
+[editable path="AirShooterV"]
