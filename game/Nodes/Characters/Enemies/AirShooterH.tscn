@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/DummyEnemy/adler.png.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.0529, 10.397 )
+
+[node name="AirShooterH" type="Node2D"]
+
+[node name="GenericCharacter" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="GenericCharacter" index="0"]
+scale = Vector2( 0.2, 0.05 )
+frames = SubResource( 1 )
+animation = "move"
+
+[node name="CollisionShape2D" parent="GenericCharacter" index="1"]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="GenericCharacter"]
+one_shot = true
+[connection signal="timeout" from="GenericCharacter/Timer" to="GenericCharacter" method="_on_Timer_timeout"]
+
+[editable path="GenericCharacter"]
