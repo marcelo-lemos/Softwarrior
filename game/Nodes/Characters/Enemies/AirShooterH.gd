@@ -48,4 +48,5 @@ func _on_FreeDeadNode_timeout():
 	
 func _on_Shoot_timeout():
 	shooter.fire(Vector2(0, 1), shot)
-	pass
+	print("cheguei H")
+	

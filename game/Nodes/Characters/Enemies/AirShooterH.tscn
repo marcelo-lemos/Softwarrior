@@ -7,6 +7,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "move",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "die",
@@ -15,11 +20,6 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "shoot",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "move",
 "speed": 5.0
 } ]
 
@@ -50,6 +50,7 @@ script = ExtResource( 4 )
 
 [node name="Shoot" type="Timer" parent="GenericCharacter"]
 autostart = true
+
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
 

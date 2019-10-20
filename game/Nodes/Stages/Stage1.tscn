@@ -148,6 +148,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Collectable/Strawberry"]
 scale = Vector2( 0.015, 0.015 )
 texture = ExtResource( 11 )
+
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.gd" type="Script" id=2]
+[ext_resource path="res://Nodes/Characters/Enemies/GroundShooter.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Enemies/AirShooterH/adler.png.png" type="Texture" id=3]
 [ext_resource path="res://Nodes/Combat/genericShooter.gd" type="Script" id=4]
 
@@ -9,38 +9,50 @@
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "move",
+"name": "idle",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20.4214, 10 )
+extents = Vector2( 14.9791, 21.8358 )
 
-[node name="AirShooterV" type="Node2D"]
+[sub_resource type="CircleShape2D" id=3]
+radius = 127.686
+
+[node name="GroundShooter" type="Node2D"]
 
 [node name="GenericCharacter" parent="." groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
-collision_mask = 2
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="GenericCharacter" index="0"]
-scale = Vector2( 0.2, 0.05 )
+scale = Vector2( 0.182321, 0.101625 )
 frames = SubResource( 1 )
-animation = "move"
+animation = "idle"
 
 [node name="CollisionShape2D" parent="GenericCharacter" index="1"]
 shape = SubResource( 2 )
 
 [node name="FreeDeadNode" type="Timer" parent="GenericCharacter"]
+one_shot = true
 
 [node name="Shooter" type="Node2D" parent="GenericCharacter"]
 script = ExtResource( 4 )
 
 [node name="Shoot" type="Timer" parent="GenericCharacter"]
+wait_time = 0.5
 autostart = true
+
+[node name="PlayerDetector" type="Area2D" parent="GenericCharacter"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/PlayerDetector"]
+shape = SubResource( 3 )
 
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
+[connection signal="body_entered" from="GenericCharacter/PlayerDetector" to="GenericCharacter" method="_on_PlayerDetector_body_entered"]
 
 [editable path="GenericCharacter"]
