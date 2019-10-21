@@ -5,7 +5,7 @@ const DASH_ATTACK_SLOWDOWN = 25
 
 func enter():
 	print("Entered DASH_ATTACK")
-	sprite.play("Idle")
+	sprite.play("DashAttack")
 	player.katana.attack(attack_type)
 
 func update(delta):
