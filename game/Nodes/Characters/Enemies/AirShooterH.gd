@@ -35,6 +35,7 @@ func die():
 	is_dead = true
 	$AnimatedSprite.play("die")
 	$CollisionShape2D.disabled = true
+	$HitBoxDamage.set_deferred("monitorable", false)
 	$FreeDeadNode.start()
 
 func take_damage(damage):

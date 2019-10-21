@@ -20,7 +20,8 @@ func is_outside_view_bounds():
 	return position.x > OS.get_screen_size().x \
 		or position.y > OS.get_screen_size().y
 
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("enemy"):
-		body.take_damage(damage)
+func _on_Area2D_area_entered(area):
+	print(area.name)
+	if area.is_in_group("enemy"):
+		area.get_node("../").take_damage(damage)
 	queue_free()

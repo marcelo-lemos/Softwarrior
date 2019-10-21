@@ -3,6 +3,7 @@ extends Node2D
 const GRAVITY = 40.0
 const NORMAL = Vector2(0,-1)
 
+var health = 20
 var going_right = true
 
 #physics vars

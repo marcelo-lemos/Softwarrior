@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const NORMAL = Vector2()
+const NORMAL = Vector2(0,-1)
 const GRAVITY = 10.0
-const JUMP_FORCE = 300
+const JUMP_FORCE = -300
 #onready var shooter = get_node("Shooter")
 #onready var shot = preload("res://Nodes/Combat/GroundShoot.tscn")
 export(float) var speed
@@ -25,16 +25,20 @@ func _process(delta):
 		$AnimatedSprite.play("run")
 
 		velocity.x = speed * direction
-		velocity.y += GRAVITY
+		
+		if !is_on_floor():
+			velocity.y += GRAVITY
 		velocity = move_and_slide(velocity, NORMAL)
 		
 		if is_on_wall():
 			direction = direction * -1
 
 func die():
+	print($HitBoxDamage.monitorable)
 	is_dead = true
 	$AnimatedSprite.play("die")
 	$CollisionShape2D.disabled = true
+	$HitBoxDamage.set_deferred("monitorable", false)
 	$FreeDeadNode.start()
 
 func take_damage(damage):
@@ -47,7 +51,5 @@ func _on_FreeDeadNode_timeout():
 	queue_free()
 	
 func _on_PlayerDetector_body_entered(body):
-	print("detectou algo")
 	if body.is_in_group("player"):
-		print("detectou player VERY ANGRY")
 		velocity.y = JUMP_FORCE

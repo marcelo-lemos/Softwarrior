@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.gd" type="Script" id=2]
@@ -9,7 +9,7 @@
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "die",
+"name": "shoot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -19,12 +19,15 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "shoot",
+"name": "die",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21.0529, 10.397 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20.8395, 10.719 )
 
 [node name="AirShooterH" type="Node2D"]
 
@@ -32,6 +35,7 @@ extents = Vector2( 21.0529, 10.397 )
 "enemy",
 ] instance=ExtResource( 1 )]
 collision_layer = 4
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="GenericCharacter" index="0"]
@@ -51,6 +55,14 @@ script = ExtResource( 4 )
 [node name="Shoot" type="Timer" parent="GenericCharacter"]
 autostart = true
 
+[node name="HitBoxDamage" type="Area2D" parent="GenericCharacter" groups=[
+"enemy",
+]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/HitBoxDamage"]
+shape = SubResource( 3 )
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
 

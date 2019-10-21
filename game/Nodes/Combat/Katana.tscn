@@ -194,6 +194,6 @@ anims/dash_attack = SubResource( 2 )
 anims/ground_attack1 = SubResource( 3 )
 anims/ground_attack2 = SubResource( 4 )
 anims/ground_attack3 = SubResource( 5 )
-[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="HitBox"]

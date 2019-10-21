@@ -24,11 +24,11 @@ func attack(attack_current):
 	hit_box.monitoring = true
 	print(attack_current)
 
-func _on_HitBox_body_entered(body):
-	if body.is_in_group("enemy"):
-		body.take_damage(current_attack['damage'])
-
 func animation_player_method_call(function_name):
 	match function_name:
 		"set_attack_input_listening", "set_ready_for_next_attack":
 			emit_signal(function_name)		
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("enemy"):
+		area.get_node("../").take_damage(current_attack['damage'])

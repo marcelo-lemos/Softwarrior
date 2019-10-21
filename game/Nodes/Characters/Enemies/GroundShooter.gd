@@ -37,6 +37,7 @@ func die():
 	is_dead = true
 	$AnimatedSprite.play("die")
 	$CollisionShape2D.disabled = true
+	$HitBoxDamage.set_deferred("monitorable", false)
 	$FreeDeadNode.start()
 
 func take_damage(damage):
@@ -53,14 +54,10 @@ func _on_Shoot_timeout():
 	pass
 
 func _on_PlayerDetector_body_entered(body):
-	print("detectou algo")
 	if body.is_in_group("player"):
-		print("detectou player")
 		shot_direction = Vector2(-1, -0.5)
 
 
 func _on_PlayerDetector_body_exited(body):
-	print("saiu algo")
 	if body.is_in_group("player"):
-		print("saiu player")
 		shot_direction = Vector2(-1, 0)
