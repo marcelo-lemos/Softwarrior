@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Nodes/Characters/Enemies/GroundShooter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nodes/Characters/Enemies/VeryAngryRunner.tscn" type="PackedScene" id=12]
 
 [node name="TestScene" type="Node"]
 
@@ -147,6 +148,12 @@ move_range = 30.0
 [node name="GroundShooter" parent="." instance=ExtResource( 11 )]
 position = Vector2( 474.129, -86.595 )
 
+[node name="VeryAngryRunner" parent="." instance=ExtResource( 12 )]
+position = Vector2( 607.511, -221.11 )
+
+[node name="GenericCharacter" parent="VeryAngryRunner" index="0"]
+speed = 300.0
+
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
@@ -157,3 +164,7 @@ position = Vector2( 474.129, -86.595 )
 [editable path="AirShooterH"]
 
 [editable path="AirShooterV"]
+
+[editable path="VeryAngryRunner"]
+
+[editable path="VeryAngryRunner/GenericCharacter"]

@@ -21,7 +21,7 @@ extents = Vector2( 20.4214, 10 )
 [node name="GenericCharacter" parent="." groups=[
 "enemy",
 ] instance=ExtResource( 1 )]
-collision_mask = 2
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="GenericCharacter" index="0"]

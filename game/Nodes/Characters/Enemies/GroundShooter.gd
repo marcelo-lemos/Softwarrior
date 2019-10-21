@@ -56,7 +56,11 @@ func _on_PlayerDetector_body_entered(body):
 	print("detectou algo")
 	if body.is_in_group("player"):
 		print("detectou player")
-		if body.is_on_floor():
-			shot_direction = Vector2(-1, 0)
-		else:
-			shot_direction = Vector2(-1, -0.5)
+		shot_direction = Vector2(-1, -0.5)
+
+
+func _on_PlayerDetector_body_exited(body):
+	print("saiu algo")
+	if body.is_in_group("player"):
+		print("saiu player")
+		shot_direction = Vector2(-1, 0)
