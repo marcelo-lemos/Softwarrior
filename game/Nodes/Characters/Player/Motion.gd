@@ -58,3 +58,10 @@ func cap_velocity(current_velocity, max_velocity):
 	if current_velocity < -max_velocity:
 		return -max_velocity
 	return current_velocity
+
+func add_velocity_with_cap(current_velocity, additional_velocity, max_velocity):
+	if abs(current_velocity + additional_velocity) > abs(max_velocity):
+		if sign(current_velocity) != sign(additional_velocity):
+			return current_velocity + additional_velocity
+		return current_velocity
+	return current_velocity + additional_velocity

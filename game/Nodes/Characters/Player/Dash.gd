@@ -1,7 +1,7 @@
 extends "PlayerBaseState.gd"
 
 const DASH_VELOCITY = 350
-const DASH_DURATION = 0.25
+const DASH_DURATION = 0.2
 
 var dash_time_count = 0.0
 var ground_dash = false
