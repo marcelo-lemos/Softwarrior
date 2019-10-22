@@ -10,6 +10,7 @@ func _on_Checkpoint_body_entered(body):
 	if active == false:
 		active = true
 		$Sprite.play("Activation")
+		$AudioStreamPlayer.play()
 		emit_signal("activate_checkpoint",self)
 
 func _on_Sprite_animation_finished():

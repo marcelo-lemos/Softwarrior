@@ -15,9 +15,13 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	emit_signal("collected")
+	$AudioStreamPlayer.play()
 	$Sprite.play("OnPickup")
 	$CollisionShape2D.set_deferred("disabled",true)
 
 func _on_Sprite_animation_finished():
-	if $Sprite.animation == "OnPickup":
-		queue_free()
+	pass
+
+
+func _on_AudioStreamPlayer_finished():
+	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Nodes/Stages/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Checkpoint/CheckpointDeactivated.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Sprites/Checkpoint/CheckPointActive3.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Checkpoint/CheckPointActive4.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/Checkpoint/CheckPointActive5.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sound Effects/CheckPointSoundEffect.wav" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -53,6 +54,9 @@ shape = SubResource( 2 )
 
 [node name="RespawnPosition" type="Position2D" parent="."]
 position = Vector2( -0.214638, 18.4591 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
 
 [connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]

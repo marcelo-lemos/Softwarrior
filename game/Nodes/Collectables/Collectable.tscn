@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Nodes/Stages/Collect.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle1.png" type="Texture" id=2]
@@ -17,8 +17,9 @@
 [ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup8.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup9.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup10.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sound Effects/ItemGetSoundEffect.wav" type="AudioStream" id=18]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 15.9704
 
 [sub_resource type="SpriteFrames" id=2]
@@ -42,13 +43,17 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Default"
-frame = 1
+frame = 4
 playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
