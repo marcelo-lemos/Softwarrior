@@ -1,5 +1,5 @@
 extends Area2D
-
+signal collected;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,4 +14,10 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	queue_free()
+	emit_signal("collected")
+	$Sprite.play("OnPickup")
+	$CollisionShape2D.set_deferred("disabled",true)
+
+func _on_Sprite_animation_finished():
+	if $Sprite.animation == "OnPickup":
+		queue_free()
