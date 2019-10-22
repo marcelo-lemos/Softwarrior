@@ -29,7 +29,7 @@ func handle_input(event):
 func update(delta):
 	.update(delta)
 	if body.is_on_floor():
-		emit_signal("finished", "move")
+		emit_signal("finished", "previous")
 	
 	if (player.velocity.y < 25 and player.velocity.y > -25) or player.velocity.y > 50:
 		if check_wall_left() and input_direction < 0 and player.velocity.x <= 0:

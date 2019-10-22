@@ -29,7 +29,6 @@ func handle_input(event):
 	return .handle_input(event)
 
 func update(delta):
-<<<<<<< HEAD
 	.update(delta)
 	velocity_preserve_timer += delta
 	player.has_dash = true

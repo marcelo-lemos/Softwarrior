@@ -14,7 +14,6 @@ var respawn_position
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
-var has_dash_attack = true
 var shuriken_shots = 4
 onready var katana = body.get_node("Katana")
 

@@ -40,8 +40,7 @@ func handle_input(event):
 		canceled = true
 		player.velocity.y = JUMP_FORCE
 		emit_signal("finished", "mid_air")
-	if event.is_action_pressed("attack") and player.has_dash_attack:
-		player.has_dash_attack = false
+	if event.is_action_pressed("attack"):
 		emit_signal("finished", "dash_attack")
 	return .handle_input(event)
 
