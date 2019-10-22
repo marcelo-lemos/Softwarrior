@@ -9,7 +9,7 @@ var going_right = true
 onready var body = get_node("GenericCharacter")
 var velocity = Vector2(0,0.2)
 var apply_gravity = true
-
+var respawn_position
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
