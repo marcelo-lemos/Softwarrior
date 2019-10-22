@@ -19,3 +19,13 @@ onready var katana = body.get_node("Katana")
 
 func _process(delta):
 	velocity = body.move_and_slide(velocity, NORMAL)
+
+func take_damage(damage):
+	print("AI CARALHO")
+	health -= damage
+	print(health, damage)
+	if health <= 0:
+		die()
+
+func die():
+	$GenericCharacter.get_node("AnimatedSprite").flip_v = true

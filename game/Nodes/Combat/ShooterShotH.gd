@@ -22,3 +22,9 @@ func is_outside_view_bounds():
 
 func _on_Area2D_body_entered(body):
 	queue_free()
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("player"):
+		print("(&AUOEFJN")
+		area.get_node("../../").take_damage(damage)
+		queue_free()

@@ -3,7 +3,7 @@ extends KinematicBody2D
 const NORMAL = Vector2()
 
 onready var shooter = get_node("Shooter")
-onready var shot = preload("res://Nodes/Combat/GroundShoot.tscn")
+onready var shot = preload("res://Nodes/Combat/GroundShot.tscn")
 export(float) var speed
 export(float) var move_range
 
@@ -13,7 +13,7 @@ var direction = Vector2(0,1)
 var shot_direction = Vector2(-1, 0)
 
 #control
-var health = 3
+var health = 1
 var is_dead = false
 
 func _ready():

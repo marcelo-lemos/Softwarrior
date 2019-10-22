@@ -21,7 +21,9 @@ func is_outside_view_bounds():
 		or position.y > OS.get_screen_size().y
 
 func _on_Area2D_area_entered(area):
-	print(area.name)
 	if area.is_in_group("enemy"):
 		area.get_node("../").take_damage(damage)
+	queue_free()
+
+func _on_Area2D_body_entered(body):
 	queue_free()

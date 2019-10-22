@@ -14,7 +14,6 @@ func handle_input(event):
 		else:
 			shuriken_spawner.fire(Vector2(-1, 0), shuriken)
 			
-	.handle_input(event)
 	
 func update(delta):
 	input_direction = get_input_direction()[0]

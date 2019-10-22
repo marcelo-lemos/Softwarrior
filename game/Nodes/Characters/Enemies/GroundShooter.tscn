@@ -50,7 +50,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="PlayerDetector" type="Area2D" parent="GenericCharacter"]
-collision_layer = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/PlayerDetector"]
 position = Vector2( -75.0816, -19.908 )

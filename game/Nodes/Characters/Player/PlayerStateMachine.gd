@@ -19,8 +19,4 @@ func _change_state(state_name):
 		print(">>>>> " + states_map[state_name].name)
 		states_stack.push_front(states_map[state_name])
 
-	._change_state(state_name)
-
-func _input(event):
-	current_state.handle_input(event)
-	
+	._change_state(state_name)	

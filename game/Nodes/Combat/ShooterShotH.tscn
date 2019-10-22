@@ -25,5 +25,5 @@ shape = SubResource( 1 )
 scale = Vector2( 0.02, 0.02 )
 frames = SubResource( 2 )
 animation = "move"
-
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

@@ -25,7 +25,6 @@ extents = Vector2( 20.5073, 10.2208 )
 "enemy",
 ] instance=ExtResource( 1 )]
 collision_layer = 4
-collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="GenericCharacter" index="0"]

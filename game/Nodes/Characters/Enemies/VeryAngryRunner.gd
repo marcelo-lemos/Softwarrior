@@ -14,7 +14,7 @@ var direction = -1
 #var shot_direction = Vector2(-1, 0)
 
 #control
-var health = 3
+var health = 1
 var is_dead = false
 
 func _ready():
@@ -34,7 +34,6 @@ func _process(delta):
 			direction = direction * -1
 
 func die():
-	print($HitBoxDamage.monitorable)
 	is_dead = true
 	$AnimatedSprite.play("die")
 	$CollisionShape2D.disabled = true

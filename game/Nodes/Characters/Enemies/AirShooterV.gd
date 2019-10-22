@@ -12,7 +12,7 @@ var velocity = Vector2()
 var direction = Vector2(0,1)
 
 #control
-var health = 3
+var health = 1
 var is_dead = false
 
 func _ready():
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(delta):
 	if is_dead == false:
-		if position.y > move_range or position.y < -move_range:
+		if (position.y > move_range and direction.y == 1) or (position.y < -move_range and direction.y == -1):
 			direction *= -1
 			
 		velocity = speed * direction
@@ -28,8 +28,8 @@ func _process(delta):
 			
 		$AnimatedSprite.play("move")
 		
-		if is_on_floor() or is_on_ceiling():
-			direction = direction * -1
+		#if is_on_floor() or is_on_ceiling():
+			#direction = direction * -1
 
 func die():
 	is_dead = true

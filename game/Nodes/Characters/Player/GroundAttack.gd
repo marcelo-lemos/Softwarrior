@@ -10,8 +10,9 @@ var state = null
 enum ATTACK_INPUT_STATES { IDLE, LISTENING, REGISTERED }
 var attack_input_state = ATTACK_INPUT_STATES.IDLE
 var ready_for_next_attack = false
-const MAX_COMBO_COUNT = 3
+const MAX_COMBO_COUNT = 2
 var combo_count = 0
+var canceled = false
 
 var attack_current = {}
 var combo = [{
@@ -21,15 +22,12 @@ var combo = [{
 	{
 		'damage': 1,
 		'animation': 'ground_attack2',
-	},
-	{
-		'damage': 1,
-		'animation': 'ground_attack3',
 	}]
 
 #var hit_objects = []
 
 func enter():
+	canceled = false
 	player.katana.connect("set_attack_input_listening", self, "set_attack_input_listening")
 	player.katana.connect("set_ready_for_next_attack", self, "set_ready_for_next_attack")
 	print("Entered GROUND_ATTACK")
@@ -62,6 +60,18 @@ func _change_state(new_state):
 
 	state = new_state
 
+func update(delta):
+	if canceled:
+		print("AFUOJN(A*IN")
+		emit_signal("finished", "previous")
+	player.velocity.x = 0
+	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
+		attack()
+	if Input.is_action_pressed("dash"):
+		_change_state(STATES.IDLE)
+		canceled = true
+		emit_signal("finished", "dash")
+
 func handle_input(event):
 	if not state == STATES.GROUND_ATTACK:
 		return
@@ -69,11 +79,6 @@ func handle_input(event):
 		return
 	if event.is_action_pressed('attack'):
 		attack_input_state = ATTACK_INPUT_STATES.REGISTERED
-
-func update(delta):
-	player.velocity.x = 0
-	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
-		attack()
 
 func attack():
 	combo_count += 1
@@ -88,14 +93,17 @@ func set_ready_for_next_attack():
 	ready_for_next_attack = true
 	
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name in ['ground_attack1', 'ground_attack2', 'ground_attack3']:
+	
+	if anim_name in ['ground_attack1', 'ground_attack2']:
 		if not attack_current:
 			return
 		if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and combo_count < MAX_COMBO_COUNT:
 			attack()
 		else:
 			_change_state(STATES.IDLE)
-			emit_signal("finished", "previous")
+			if !canceled:
+				print("a08rhiojsen9ionkl")
+				emit_signal("finished", "previous")
 
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("enemy"):
