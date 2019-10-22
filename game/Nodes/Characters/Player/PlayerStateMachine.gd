@@ -8,14 +8,15 @@ func _ready():
 		"on_wall": $OnWall,
 		"ground_attack": $GroundAttack,
 		"dash_attack": $DashAttack,
-		"air_attack": $AirAttack	
+		"air_attack": $AirAttack,
+		"parry": $Parry
 	}
 
 func _change_state(state_name):
 	if not _active:
 		return
 
-	if state_name in ["dash_attack", "on_wall", "mid_air", "dash", "ground_attack", "air_attack"]:
+	if state_name in ["dash_attack", "on_wall", "mid_air", "dash", "ground_attack", "air_attack", "parry"]:
 		print(">>>>> " + states_map[state_name].name)
 		states_stack.push_front(states_map[state_name])
 

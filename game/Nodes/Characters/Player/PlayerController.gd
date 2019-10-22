@@ -29,3 +29,19 @@ func take_damage(damage):
 
 func die():
 	$GenericCharacter.get_node("AnimatedSprite").flip_v = true
+
+
+func get_parry_target():
+	var areas = $GenericCharacter/ParryArea.get_overlapping_areas()
+	if areas.empty():
+		return null
+		
+	var closest = null
+	for area in areas:
+		if closest == null:
+			closest = area
+		else:
+			if body.global_position.distance_to(area.global_position) < body.global_position.distance_to(closest.global_position):
+				closest = area
+	return closest
+		

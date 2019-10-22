@@ -141,7 +141,6 @@ position = Vector2( 457.974, -178.966 )
 
 [node name="PlayerSpawnPosition" parent="." index="6"]
 position = Vector2( 215.432, -242.532 )
-
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
