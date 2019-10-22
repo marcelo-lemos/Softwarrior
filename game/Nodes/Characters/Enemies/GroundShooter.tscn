@@ -42,9 +42,6 @@ shape = SubResource( 2 )
 [node name="FreeDeadNode" type="Timer" parent="GenericCharacter"]
 one_shot = true
 
-[node name="Shooter" type="Node2D" parent="GenericCharacter"]
-script = ExtResource( 4 )
-
 [node name="Shoot" type="Timer" parent="GenericCharacter"]
 wait_time = 0.5
 autostart = true
@@ -65,6 +62,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/HitBoxDamage"]
 shape = SubResource( 4 )
+
+[node name="Shooter" type="Node2D" parent="."]
+script = ExtResource( 4 )
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
 [connection signal="body_entered" from="GenericCharacter/PlayerDetector" to="GenericCharacter" method="_on_PlayerDetector_body_entered"]

@@ -8,7 +8,7 @@ var wall_side
 
 func enter():
 	print("Entering ONWALL")
-	player.has_dash = true
+	#player.has_dash = true
 	player.has_double_jump = true
 	player.velocity.y = 0
 

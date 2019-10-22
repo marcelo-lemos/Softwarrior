@@ -44,9 +44,9 @@ func update(delta):
 	
 	if input_direction:
 		player.velocity.x += input_direction * AIR_ACCELERATION
+		player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	elif player.velocity.x != 0:
 		apply_air_slowdown()
-	player.velocity.x = (cap_velocity(player.velocity.x, MAX_AIR_SPEED))
 	if(Input.is_action_just_released("jump")):
 		check_jump_cut(jump_var_height)
 

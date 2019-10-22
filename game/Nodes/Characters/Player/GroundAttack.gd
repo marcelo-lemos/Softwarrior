@@ -67,10 +67,17 @@ func update(delta):
 	player.velocity.x = 0
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
 		attack()
+	
+	#cancel animation features
 	if Input.is_action_pressed("dash"):
 		_change_state(STATES.IDLE)
 		canceled = true
 		emit_signal("finished", "dash")
+	if Input.is_action_pressed("jump"):
+		_change_state(STATES.IDLE)
+		canceled = true
+		player.velocity.y = JUMP_FORCE
+		emit_signal("finished", "mid_air")
 
 func handle_input(event):
 	if not state == STATES.GROUND_ATTACK:

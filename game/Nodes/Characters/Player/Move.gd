@@ -24,9 +24,9 @@ func handle_input(event):
 	return .handle_input(event)
 
 func update(delta):
-	.update(delta)
 	player.has_dash = true
 	player.has_double_jump = true
+	.update(delta)
 	
 	if input_direction:
 		player.velocity.x += input_direction * MOVE_ACCELERATION

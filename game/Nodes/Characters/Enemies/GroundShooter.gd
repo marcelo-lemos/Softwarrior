@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const NORMAL = Vector2()
 
-onready var shooter = get_node("Shooter")
+onready var shooter = get_node("../Shooter")
 onready var shot = preload("res://Nodes/Combat/GroundShot.tscn")
 export(float) var speed
 export(float) var move_range
