@@ -18,10 +18,12 @@ var attack_current = {}
 var combo = [{
 		'damage': 1,
 		'animation': 'ground_attack1',
+		'animation_sprite': 'GroundCombo1'
 	},
 	{
 		'damage': 1,
 		'animation': 'ground_attack2',
+		'animation_sprite': 'GroundCombo2'
 	}]
 
 #var hit_objects = []
