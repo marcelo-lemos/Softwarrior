@@ -15,12 +15,8 @@ func _change_state(state_name):
 	if not _active:
 		return
 
-	if state_name in ["move","on_wall", "mid_air", "dash", "ground_attack", "air_attack","dash_attack"]:
+	if state_name in ["dash_attack", "on_wall", "mid_air", "dash", "ground_attack", "air_attack"]:
 		print(">>>>> " + states_map[state_name].name)
 		states_stack.push_front(states_map[state_name])
 
-	._change_state(state_name)
-
-func _input(event):
-	current_state.handle_input(event)
-	
+	._change_state(state_name)	

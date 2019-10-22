@@ -12,7 +12,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.11662, 19.8297 )
+extents = Vector2( 9.11662, 21.3148 )
 
 [node name="DummyEnemy" type="Node2D"]
 

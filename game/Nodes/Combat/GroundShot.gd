@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 1000
+const SPEED = 300
 
 var direction = Vector2()
 var damage = 1
@@ -20,10 +20,10 @@ func is_outside_view_bounds():
 	return position.x > OS.get_screen_size().x \
 		or position.y > OS.get_screen_size().y
 
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("enemy"):
-		area.get_node("../").take_damage(damage)
-	queue_free()
-
 func _on_Area2D_body_entered(body):
 	queue_free()
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("player"):
+		area.get_node("../../").take_damage(damage)
+		queue_free()

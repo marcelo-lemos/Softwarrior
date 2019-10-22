@@ -5,8 +5,10 @@ const DASH_DURATION = 0.20
 
 var dash_time_count = 0.0
 var ground_dash = false
+var canceled = false
 
 func enter():
+	canceled = false
 	if(body.is_on_floor()):
 		ground_dash = true
 	else:
@@ -35,14 +37,19 @@ func exit():
 
 func handle_input(event):
 	if event.is_action_pressed("jump") and ground_dash:
+		canceled = true
 		player.velocity.y = JUMP_FORCE
 		emit_signal("finished", "mid_air")
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and player.has_dash_attack:
+		player.has_dash_attack = false
 		emit_signal("finished", "dash_attack")
 	return .handle_input(event)
 
 func update(delta):
-	dash_time_count += delta
-	if dash_time_count >= DASH_DURATION:
+	if !canceled:
+		dash_time_count += delta
+		if dash_time_count >= DASH_DURATION:
+			emit_signal("finished", "previous")
+	else:
 		emit_signal("finished", "previous")
 	.update(delta)
