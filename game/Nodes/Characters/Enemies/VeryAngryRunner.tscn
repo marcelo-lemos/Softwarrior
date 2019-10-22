@@ -15,8 +15,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.2705, 24.575 )
 
-[sub_resource type="CapsuleShape2D" id=3]
-height = 76.4881
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 122.397, 487.995 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 27.4828, 24.5039 )
@@ -44,9 +44,8 @@ shape = SubResource( 2 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/PlayerDetector"]
-position = Vector2( -56.8643, -24.251 )
-rotation = -1.27014
-shape = SubResource( 3 )
+rotation = 1.5708
+shape = SubResource( 5 )
 
 [node name="HitBoxDamage" type="Area2D" parent="GenericCharacter" groups=[
 "enemy",
@@ -58,5 +57,6 @@ collision_mask = 0
 shape = SubResource( 4 )
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="body_entered" from="GenericCharacter/PlayerDetector" to="GenericCharacter" method="_on_PlayerDetector_body_entered"]
+[connection signal="body_exited" from="GenericCharacter/PlayerDetector" to="GenericCharacter" method="_on_PlayerDetector_body_exited"]
 
 [editable path="GenericCharacter"]
