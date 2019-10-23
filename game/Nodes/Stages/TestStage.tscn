@@ -158,6 +158,7 @@ speed = 300.0
 
 [node name="Shooter" type="Node2D" parent="."]
 script = ExtResource( 13 )
+
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
