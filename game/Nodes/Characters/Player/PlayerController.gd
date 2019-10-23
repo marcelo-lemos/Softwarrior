@@ -12,6 +12,7 @@ onready var stage = get_node("../")
 
 var max_health = 6
 var health = max_health
+
 const ABYSS_LIMIT = 80
 const MAX_SHURIKEN = 4
 const GET_SHURIKEN = 4
@@ -24,8 +25,9 @@ onready var katana = body.get_node("Katana")
 onready var shuriken = load("res://Nodes/Combat/Shuriken.tscn")
 onready var shuriken_spawner = $GenericCharacter/RangedAttack
 var velocity = Vector2(0,0.2)
-var apply_gravity = true
+
 var respawn_position = Vector2()
+
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
@@ -50,7 +52,7 @@ func take_damage(damage, positionX):
 		$iFrame.start()
 		print("AI CARALHO")
 		health -= damage
-		print(health, damage)
+		#print(health, damage)
 		emit_signal("health_changed", health)
 		
 		velocity.y = KNOCKBACK_POWER
@@ -79,6 +81,7 @@ func _on_HitBoxDamage_area_entered(area):
 		take_damage(1, area.position.x)
 
 func enemy_hit():
+<<<<<<< HEAD
 	if shurikens_count < MAX_SHURIKEN:
 		shuriken_build_up += SHURIKEN_ATTACK_BUILD_VALUE
 		print("BUILD", shuriken_build_up)
@@ -95,3 +98,31 @@ func fire_shuriken():
 	else:
 		shuriken_spawner.fire(Vector2(-1, 0), shuriken)
 	emit_signal("shuriken_changed",shurikens_count, float(shuriken_build_up) / float(GET_SHURIKEN))  
+			
+func get_parry_target(input_2d):
+	print(input_2d)
+	var angle = rad2deg(Vector2(0,0).angle_to_point(input_2d))
+	if angle < 0:
+		angle += 360
+	print("Angle: ",angle)
+	var areas = $GenericCharacter/ParryArea.get_overlapping_areas()
+	
+	var lim1 = angle - 50
+	print("lim1: ", lim1)
+	
+	var lim2 = angle + 50
+	print("lim2: ", lim2)
+	
+	if areas.empty():
+		print("ERROU TIMING")
+		return null
+		
+	var area_angle
+	for area in areas:
+		area_angle = rad2deg(body.global_position.angle_to_point(area.global_position))
+		if area_angle < 0:
+			area_angle += 360
+		print(area_angle)
+		if area_angle < max(lim1,lim2) and area_angle > min(lim1,lim2):
+			return area
+	return null

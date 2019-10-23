@@ -12,8 +12,9 @@ func enter():
 func update(delta):
 	if canceled:
 		emit_signal("finished", "previous")
-	player.velocity.y += GRAVITY
-	
+
+	#player.velocity.y += GRAVITY
+
 	apply_air_slowdown()
 	
 	if(Input.is_action_just_released("jump")):

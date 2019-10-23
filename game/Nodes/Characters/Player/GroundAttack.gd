@@ -71,6 +71,7 @@ func update(delta):
 		print("AFUOJN(A*IN")
 		emit_signal("finished", "previous")
 	player.velocity.x = 0
+	player.velocity.y += GRAVITY
 	if attack_input_state == ATTACK_INPUT_STATES.REGISTERED and ready_for_next_attack:
 		attack()
 	

@@ -65,7 +65,7 @@ func take_damage(damage, positionX):
 	else:
 		velocity.x = KNOCKBACK_POWER
 	health -= damage
-	print(health, damage)
+	#print(health, damage)
 	if health <= 0:
 		die()
 

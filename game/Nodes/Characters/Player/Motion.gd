@@ -1,15 +1,22 @@
 extends "PlayerBaseState.gd"
 
 var input_direction
+var input_2d
 
 func handle_input(event):
-	if event.is_action_pressed("dash") and player.has_dash:
-		#player.katana._change_state(0)
-		emit_signal("finished", "dash")
+	if event.is_action_pressed("dash"):
+		input_2d = get_input_direction()
+		
+		if input_2d and player.get_parry_target(input_2d):
+			print("Can parry")
+			emit_signal("finished", "parry")
+		
+		elif player.has_dash:
+			emit_signal("finished", "dash")
 
 	if event.is_action_pressed("fire") and player.shurikens_count > 0:
 		player.fire_shuriken()
-	
+		print("SHURIKENS: " + str(player.shurikens_count))
 	
 func update(delta):
 	input_direction = get_input_direction()[0]
