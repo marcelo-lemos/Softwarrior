@@ -4,14 +4,15 @@ const GRAVITY = 15
 const NORMAL  = Vector2(0,-1)
 const JUMP_FORCE = -300
 
+onready var shuriken = preload("res://Nodes/Combat/Shuriken.tscn")
+
 onready var player = get_node("../../..")
 onready var body = get_node("../..")
-onready var sprite = body.get_node("Sprite")
+onready var sprite = body.get_node("AnimatedSprite")
 onready var wallDetection = body.get_node("WallDetection")
 onready var trail = body.get_node("TextureEmitter")
 onready var animation = body.get_node("AnimationPlayer")
 onready var shuriken_spawner = body.get_node("RangedAttack")
-
 func enter():
 	pass
 
