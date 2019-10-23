@@ -3,7 +3,10 @@ extends Node2D
 const GRAVITY = 40.0
 const NORMAL = Vector2(0,-1)
 const KNOCKBACK_POWER = -150
-
+const ABYSS_LIMIT = 80
+const MAX_SHURIKEN = 5
+const GET_SHURIKEN = 10
+const SHURIKEN_ATTACK_BUILD_VALUE = 2
 var health = 20
 var going_right = true
 
@@ -16,11 +19,19 @@ var respawn_position
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
-var shuriken_shots = 4
+var shurikens_count = MAX_SHURIKEN
+var shuriken_build_up = 0
 var iframed = false
+
+func _ready():
+	katana.connect("enemy_hit", self, "enemy_hit")
 
 func _process(delta):
 	velocity = body.move_and_slide(velocity, NORMAL)
+	
+	
+	if body.global_position.y > ABYSS_LIMIT:
+		die()
 
 func take_damage(damage, positionX):
 	if !iframed:
@@ -48,3 +59,12 @@ func _on_iFrame_timeout():
 func _on_HitBoxDamage_area_entered(area):
 	if area.is_in_group("enemy"):
 		take_damage(1, area.position.x)
+
+func enemy_hit():
+	shuriken_build_up += SHURIKEN_ATTACK_BUILD_VALUE
+	print("BUILD", shuriken_build_up)
+	if shuriken_build_up >= 10:
+		shuriken_build_up = 0
+		if shurikens_count < MAX_SHURIKEN:
+			print("DALE")
+			shurikens_count += 1

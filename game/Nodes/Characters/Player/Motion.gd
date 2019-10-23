@@ -7,8 +7,9 @@ func handle_input(event):
 		#player.katana._change_state(0)
 		emit_signal("finished", "dash")
 
-	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
-		player.shuriken_shots -= 0
+	if event.is_action_pressed("fire") and player.shurikens_count > 0:
+		player.shurikens_count -= 1
+		print("SHURIKENS: " + str(player.shurikens_count))
 		if player.going_right:
 			shuriken_spawner.fire(Vector2(1, 0), shuriken)
 		else:
