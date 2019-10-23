@@ -55,3 +55,6 @@ func _on_Shoot_timeout():
 	
 func _on_VisibilityNotifier2D_screen_entered():
 	can_shot = true
+
+func _on_VisibilityNotifier2D_screen_exited():
+	can_shot = false

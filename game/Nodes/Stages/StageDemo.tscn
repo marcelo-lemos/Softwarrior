@@ -1,0 +1,215 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Nodes/Stages/Stage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Nodes/Stages/Pause.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Map/background3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Map/background2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Map/background4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Map/background1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Nodes/Stages/Checkpoint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Nodes/Collectables/Collectable.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nodes/Characters/Enemies/VeryAngryRunner.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Maps/DemoStage.tscn" type="PackedScene" id=13]
+
+[node name="Stage1" index="0" instance=ExtResource( 1 )]
+editor/display_folded = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
+editor/display_folded = true
+layer = 100
+
+[node name="Pause" type="Control" parent="CanvasLayer" index="0"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/Pause" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause" index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -44.0
+margin_top = -46.0
+margin_right = 44.0
+margin_bottom = 46.0
+size_flags_horizontal = 5
+custom_constants/separation = 15
+
+[node name="Button" type="Button" parent="CanvasLayer/Pause/VBoxContainer" index="0"]
+margin_right = 88.0
+margin_bottom = 20.0
+text = "RESUME"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Pause/VBoxContainer" index="1"]
+margin_top = 35.0
+margin_right = 88.0
+margin_bottom = 55.0
+text = "OPTIONS"
+
+[node name="Button3" type="Button" parent="CanvasLayer/Pause/VBoxContainer" index="2"]
+margin_top = 70.0
+margin_right = 88.0
+margin_bottom = 90.0
+text = "TITLE MENU"
+
+[node name="Button4" type="Button" parent="CanvasLayer/Pause/VBoxContainer" index="3"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "QUIT"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
+editor/display_folded = true
+scroll_base_offset = Vector2( 1, 0 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+position = Vector2( -400, -310 )
+motion_scale = Vector2( 2, 1 )
+motion_mirroring = Vector2( 0.1, 0.1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+position = Vector2( 3.70179, -40.4877 )
+texture = ExtResource( 3 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 2048 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+position = Vector2( -400, -310 )
+motion_scale = Vector2( 0.3, 0.75 )
+motion_offset = Vector2( 0, 60 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
+position = Vector2( 1.02667, -40 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 10000, 320 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+position = Vector2( -400, -310 )
+motion_scale = Vector2( 0.5, 0.85 )
+motion_offset = Vector2( 0, 50 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
+position = Vector2( 0, -40 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 100000, 400 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+position = Vector2( -400, -310 )
+motion_scale = Vector2( 0.8, 0.95 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2( 0, -40 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 100000, 400 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="PlayerSpawnPosition" parent="." index="3"]
+position = Vector2( 215.432, -242.532 )
+
+[node name="Checkpoints" parent="." index="4"]
+position = Vector2( 0.794434, 1.58885 )
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 670.401, -97.5138 )
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource( 8 )]
+editor/display_folded = true
+position = Vector2( 4562.01, -544.921 )
+
+[node name="Collectables" parent="." index="5"]
+editor/display_folded = true
+
+[node name="Collectable" parent="Collectables" index="0" instance=ExtResource( 9 )]
+position = Vector2( 124.049, -278.241 )
+
+[node name="Collectable2" parent="Collectables" index="1" instance=ExtResource( 9 )]
+position = Vector2( 3263.61, -481.297 )
+
+[node name="Collectable3" parent="Collectables" index="2" instance=ExtResource( 9 )]
+position = Vector2( 8010.33, -628.607 )
+
+[node name="Collectable4" parent="Collectables" index="3" instance=ExtResource( 9 )]
+position = Vector2( 6747.94, -298.049 )
+
+[node name="AirShooterH2" parent="Enemies" index="0" instance=ExtResource( 10 )]
+editor/display_folded = true
+position = Vector2( 929.465, 163.27 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterH2" index="0"]
+speed = 30.0
+move_range = 40.0
+
+[node name="AirShooterH3" parent="Enemies" index="1" instance=ExtResource( 10 )]
+position = Vector2( 3960.82, -350.977 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterH3" index="0"]
+speed = 30.0
+move_range = 40.0
+
+[node name="AirShooterV" parent="Enemies" index="2" instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 2197.55, -315.749 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterV" index="0"]
+speed = 30.0
+move_range = 50.0
+
+[node name="AirShooterH4" parent="Enemies" index="3" instance=ExtResource( 10 )]
+editor/display_folded = true
+position = Vector2( 6770.81, -232.886 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterH4" index="0"]
+speed = 30.0
+move_range = 50.0
+
+[node name="AirShooterV2" parent="Enemies" index="4" instance=ExtResource( 11 )]
+position = Vector2( 7496.87, -315.081 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterV2" index="0"]
+speed = 40.0
+move_range = 50.0
+
+[node name="VeryAngryRunner" parent="Enemies" index="5" instance=ExtResource( 12 )]
+position = Vector2( 7618.27, 245.384 )
+
+[node name="DemoStage" parent="." index="7" instance=ExtResource( 13 )]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
+
+[editable path="Checkpoints/Checkpoint"]
+
+[editable path="Checkpoints/Checkpoint2"]
+
+[editable path="Enemies/AirShooterH2"]
+
+[editable path="Enemies/AirShooterH3"]
+
+[editable path="Enemies/AirShooterV"]
+
+[editable path="Enemies/AirShooterH4"]
+
+[editable path="Enemies/AirShooterV2"]
+
+[editable path="DemoStage"]

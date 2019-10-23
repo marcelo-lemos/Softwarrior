@@ -66,7 +66,7 @@ func take_damage(damage, positionX):
 func die():
 	#$GenericCharacter.get_node("AnimatedSprite").flip_v = true
 	health = max_health
-	shuriken = MAX_SHURIKEN
+	shurikens_count = MAX_SHURIKEN
 	print("Respawn position")
 	print(respawn_position)
 	body.global_position = respawn_position

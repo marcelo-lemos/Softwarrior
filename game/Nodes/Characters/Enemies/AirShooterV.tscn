@@ -81,6 +81,7 @@ anims/flicker = SubResource( 4 )
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
 [connection signal="screen_entered" from="GenericCharacter/VisibilityNotifier2D" to="GenericCharacter" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="GenericCharacter/VisibilityNotifier2D" to="GenericCharacter" method="_on_VisibilityNotifier2D_screen_exited"]
 
 [editable path="GenericCharacter"]
 

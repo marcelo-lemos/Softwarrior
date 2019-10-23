@@ -32,7 +32,7 @@ func _process(delta):
 			$AnimatedSprite.play("shoot")
 			velocity = 0 
 		else:
-			if position.x > move_range or position.x < -move_range:
+			if (position.x > move_range and direction.x == 1) or (position.x < -move_range and direction.x == -1):
 				direction *= -1
 				
 			velocity = speed * direction
