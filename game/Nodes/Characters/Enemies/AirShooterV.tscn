@@ -55,8 +55,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/HitBoxDamage"]
 shape = SubResource( 3 )
 
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="GenericCharacter"]
+position = Vector2( -4.06902, 0.415205 )
+scale = Vector2( 3.20059, 1.53977 )
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
+[connection signal="screen_entered" from="GenericCharacter/VisibilityNotifier2D" to="GenericCharacter" method="_on_VisibilityNotifier2D_screen_entered"]
 
 [editable path="GenericCharacter"]
 

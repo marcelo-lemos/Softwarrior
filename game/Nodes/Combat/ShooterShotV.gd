@@ -27,3 +27,9 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("player"):
 		area.get_node("../../").take_damage(damage, global_position.x)
 		queue_free()
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+
+func _on_VisibilityNotifier2D_screen_entered():
+	pass # Replace with function body.

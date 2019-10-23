@@ -12,6 +12,7 @@ var velocity = Vector2()
 var direction = Vector2(0,1)
 
 #control
+var can_shot = false
 var health = 1
 var is_dead = false
 
@@ -48,5 +49,8 @@ func _on_FreeDeadNode_timeout():
 	queue_free()
 	
 func _on_Shoot_timeout():
-	shooter.fire(Vector2(-1, 0), shot)
+	if can_shot:
+		shooter.fire(Vector2(-1, 0), shot)
 	
+func _on_VisibilityNotifier2D_screen_entered():
+	can_shot = true

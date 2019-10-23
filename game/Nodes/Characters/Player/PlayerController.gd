@@ -6,7 +6,6 @@ const KNOCKBACK_POWER = -150
 
 signal health_changed(health_value)
 signal shuriken_changed(shuriken_value,buildup_fract)
-signal died
 
 onready var stage = get_node("../")
 
@@ -71,7 +70,8 @@ func die():
 	print("Respawn position")
 	print(respawn_position)
 	body.global_position = respawn_position
-	emit_signal("died")
+	emit_signal("health_changed", health)
+
 
 func _on_iFrame_timeout():
 	iframed = false
@@ -81,7 +81,6 @@ func _on_HitBoxDamage_area_entered(area):
 		take_damage(1, area.position.x)
 
 func enemy_hit():
-<<<<<<< HEAD
 	if shurikens_count < MAX_SHURIKEN:
 		shuriken_build_up += SHURIKEN_ATTACK_BUILD_VALUE
 		print("BUILD", shuriken_build_up)

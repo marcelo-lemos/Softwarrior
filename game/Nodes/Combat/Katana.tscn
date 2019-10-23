@@ -5,7 +5,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "air_attack"
-length = 0.5
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("HitBox:rotation_degrees")
@@ -277,7 +277,6 @@ anims/air_attack = SubResource( 1 )
 anims/dash_attack = SubResource( 2 )
 anims/ground_attack1 = SubResource( 3 )
 anims/ground_attack2 = SubResource( 4 )
-
 [connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="HitBox"]

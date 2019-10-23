@@ -13,7 +13,7 @@ func update(delta):
 	if canceled:
 		emit_signal("finished", "previous")
 
-	#player.velocity.y += GRAVITY
+	player.velocity.y += GRAVITY
 
 	apply_air_slowdown()
 	
