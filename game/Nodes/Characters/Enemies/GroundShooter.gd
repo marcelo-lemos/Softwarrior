@@ -13,7 +13,7 @@ var direction = Vector2(0,1)
 var shot_direction = Vector2(-1, 0)
 
 #control
-var health = 1
+var health = 20
 var is_dead = false
 
 func _ready():

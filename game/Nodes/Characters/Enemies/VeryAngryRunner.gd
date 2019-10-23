@@ -21,7 +21,7 @@ var direction = -1
 #var shot_direction = Vector2(-1, 0)
 
 #control
-var health = 10
+var health = 1
 var is_dead = false
 var player_on_sight = false
 var player = null

@@ -2,6 +2,7 @@ extends "PlayerBaseState.gd"
 
 var attack_type =  {'damage': 1, 'animation': 'dash_attack'}
 const DASH_ATTACK_SLOWDOWN = 25
+const BUILD_SHURIKEN = 2
 
 func enter():
 	print("Entered DASH_ATTACK")
