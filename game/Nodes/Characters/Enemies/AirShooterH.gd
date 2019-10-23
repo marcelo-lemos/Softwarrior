@@ -51,6 +51,7 @@ func die():
 	$FreeDeadNode.start()
 
 func take_damage(damage, position):
+	$AnimationPlayer.play("flicker")
 	health -= damage
 	#print(health, damage)
 	if health <= 0:

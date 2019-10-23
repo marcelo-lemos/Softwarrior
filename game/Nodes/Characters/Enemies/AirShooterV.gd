@@ -13,7 +13,7 @@ var direction = Vector2(0,1)
 
 #control
 var can_shot = false
-var health = 1
+var health = 3
 var is_dead = false
 
 func _ready():
@@ -40,6 +40,7 @@ func die():
 	$FreeDeadNode.start()
 
 func take_damage(damage, positionX):
+	$AnimationPlayer.play("flicker")
 	health -= damage
 	#print(health, damage)
 	if health <= 0:
