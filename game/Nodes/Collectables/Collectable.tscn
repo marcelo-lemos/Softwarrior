@@ -1,0 +1,60 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Nodes/Stages/Collect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle5.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup4.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup5.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup6.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup7.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup8.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup9.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Scroll/ScrollPickup10.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sound Effects/ItemGetSoundEffect.wav" type="AudioStream" id=18]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.9704
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Default",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "OnPickup",
+"speed": 25.0
+} ]
+
+[node name="Collectable" type="Area2D"]
+position = Vector2( 438.119, -114.888 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Default"
+frame = 1
+playing = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -12.0
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

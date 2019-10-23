@@ -3,7 +3,7 @@
 [ext_resource path="res://Nodes/Combat/Katana.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.3477, 2.6442 )
+extents = Vector2( 85.9062, 8.11034 )
 
 [node name="HitBox" type="Area2D"]
 script = ExtResource( 1 )

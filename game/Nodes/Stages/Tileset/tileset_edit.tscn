@@ -154,3 +154,4 @@ polygon = PoolVector2Array( -15.6319, -16, 16.3681, -16, 16.3681, 16, -15.6319, 
 position = Vector2( 125, 125 )
 region_enabled = true
 region_rect = Rect2( 200, 0, 50, 50 )
+
