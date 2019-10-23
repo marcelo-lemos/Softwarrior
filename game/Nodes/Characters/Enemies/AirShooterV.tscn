@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Sprites/Enemies/EnemyVFlier/Vflier2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Enemies/EnemyVFlier/Vflier3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Enemies/EnemyVFlier/Vflier4.png" type="Texture" id=6]
-[ext_resource path="res://Nodes/Combat/genericShooter.gd" type="Script" id=7]
+[ext_resource path="res://Nodes/Combat/Shooter.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,9 +37,13 @@ animation = "move"
 [node name="CollisionShape2D" parent="GenericCharacter" index="1"]
 shape = SubResource( 2 )
 
+[node name="Shooter" parent="GenericCharacter" instance=ExtResource( 7 )]
+position = Vector2( -16.3661, -16.9209 )
+
 [node name="FreeDeadNode" type="Timer" parent="GenericCharacter"]
 
 [node name="Shoot" type="Timer" parent="GenericCharacter"]
+wait_time = 1.5
 autostart = true
 
 [node name="HitBoxDamage" type="Area2D" parent="GenericCharacter" groups=[
@@ -51,10 +55,9 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GenericCharacter/HitBoxDamage"]
 shape = SubResource( 3 )
 
-[node name="Shooter" type="Node2D" parent="."]
-script = ExtResource( 7 )
-
 [connection signal="timeout" from="GenericCharacter/FreeDeadNode" to="GenericCharacter" method="_on_FreeDeadNode_timeout"]
 [connection signal="timeout" from="GenericCharacter/Shoot" to="GenericCharacter" method="_on_Shoot_timeout"]
 
 [editable path="GenericCharacter"]
+
+[editable path="GenericCharacter/Shooter"]

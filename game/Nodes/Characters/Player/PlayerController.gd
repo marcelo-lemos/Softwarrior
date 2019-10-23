@@ -25,7 +25,7 @@ onready var shuriken = preload("res://Nodes/Combat/Shuriken.tscn")
 onready var shuriken_spawner = $GenericCharacter/RangedAttack
 var velocity = Vector2(0,0.2)
 var apply_gravity = true
-var respawn_position
+var respawn_position = Vector2()
 #gameplay vars
 var has_dash = true
 var has_double_jump = true
@@ -41,8 +41,6 @@ func _ready():
 	
 func _process(delta):
 	velocity = body.move_and_slide(velocity, NORMAL)
-	
-	
 	if body.global_position.y > ABYSS_LIMIT:
 		die()
 
@@ -65,7 +63,12 @@ func take_damage(damage, positionX):
 			die()
 	
 func die():
-	$GenericCharacter.get_node("AnimatedSprite").flip_v = true
+	#$GenericCharacter.get_node("AnimatedSprite").flip_v = true
+	health = max_health
+	shuriken = MAX_SHURIKEN
+	print("Respawn position")
+	print(respawn_position)
+	global_position = respawn_position
 	emit_signal("died")
 
 func _on_iFrame_timeout():

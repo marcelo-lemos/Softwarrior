@@ -34,7 +34,7 @@ func _on_Checkpoint_Activated(checkpoint):
 	if current_checkpoint != null:
 		current_checkpoint.deactivate()
 	current_checkpoint = checkpoint
-	player.respawn_position = checkpoint.respawn_position
+	player.respawn_position = current_checkpoint.respawn_position
 	
 func spawn_player():
 	player = player_scene.instance()

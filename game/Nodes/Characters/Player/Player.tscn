@@ -58,7 +58,7 @@
 [ext_resource path="res://Assets/Sprites/MC/GroundComboSecond.6.png" type="Texture" id=56]
 [ext_resource path="res://Assets/Sprites/MC/GroundComboSecond.7.png" type="Texture" id=57]
 [ext_resource path="res://Nodes/Combat/Katana.tscn" type="PackedScene" id=58]
-[ext_resource path="res://Nodes/Combat/genericShooter.gd" type="Script" id=59]
+[ext_resource path="res://Nodes/Combat/Shooter.tscn" type="PackedScene" id=59]
 [ext_resource path="res://Nodes/Characters/Player/PlayerStateMachine.gd" type="Script" id=60]
 [ext_resource path="res://Nodes/Characters/Player/Move.gd" type="Script" id=61]
 [ext_resource path="res://Nodes/Characters/Player/Dash.gd" type="Script" id=62]
@@ -165,9 +165,10 @@ editor/display_folded = true
 collision_layer = 0
 collision_mask = 8
 
-[node name="RangedAttack" type="Node2D" parent="GenericCharacter"]
-script = ExtResource( 59 )
-projectile_name = "Shuriken.tscn"
+[node name="RangedAttack" parent="GenericCharacter" instance=ExtResource( 59 )]
+
+[node name="ProjectileOrigin" parent="GenericCharacter/RangedAttack" index="1"]
+position = Vector2( 0, 0 )
 
 [node name="WallDetection" type="Node2D" parent="GenericCharacter"]
 editor/display_folded = true
@@ -199,6 +200,7 @@ cast_to = Vector2( 10, 0 )
 collision_mask = 2
 
 [node name="StateMachine" type="Node" parent="GenericCharacter"]
+editor/display_folded = true
 script = ExtResource( 60 )
 START_STATE = NodePath("Move")
 
@@ -280,8 +282,8 @@ wait_time = 0.5
 
 [connection signal="health_changed" from="." to="PlayerHud" method="_on_MainCharacter_health_changed"]
 [connection signal="shuriken_changed" from="." to="PlayerHud" method="_on_MainCharacter_shuriken_changed"]
-[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/DashAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/AirAttack" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/DashAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/GroundAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Flip/Timer" to="GenericCharacter/TextureEmitter/Flip" method="_on_Timer_timeout"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Default/Timer" to="GenericCharacter/TextureEmitter/Default" method="_on_Timer_timeout"]
@@ -291,3 +293,5 @@ wait_time = 0.5
 [editable path="GenericCharacter"]
 
 [editable path="GenericCharacter/Katana"]
+
+[editable path="GenericCharacter/RangedAttack"]

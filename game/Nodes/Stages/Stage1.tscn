@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Nodes/Stages/Stage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Nodes/Stages/Checkpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Nodes/Collectables/Collectable.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.tscn" type="PackedScene" id=12]
 
 [node name="Stage1" index="0" instance=ExtResource( 1 )]
 
@@ -127,7 +129,6 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [node name="Checkpoints" type="Node2D" parent="." index="4"]
-editor/display_folded = true
 
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 9 )]
 position = Vector2( 697.227, -127.839 )
@@ -136,14 +137,53 @@ position = Vector2( 697.227, -127.839 )
 position = Vector2( 917.156, -192.683 )
 
 [node name="Collectables" type="Node2D" parent="." index="5"]
+editor/display_folded = true
 
 [node name="Collectable" parent="Collectables" index="0" instance=ExtResource( 10 )]
 position = Vector2( 457.974, -178.966 )
 
-[node name="PlayerSpawnPosition" parent="." index="6"]
+[node name="Enemies" type="Node2D" parent="." index="6"]
+position = Vector2( -24, -320 )
+
+[node name="AirShooterV2" parent="Enemies" index="0" instance=ExtResource( 11 )]
+position = Vector2( 1801.5, 99.7714 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterV2" index="0"]
+speed = 30.0
+move_range = 50.0
+
+[node name="AirShooterV3" parent="Enemies" index="1" instance=ExtResource( 11 )]
+position = Vector2( 1910.54, 135.066 )
+
+[node name="AirShooterH" parent="Enemies" index="2" instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 1392.05, 108.752 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterH" index="0"]
+speed = 60.0
+move_range = 100.0
+
+[node name="AirShooterH2" parent="Enemies" index="3" instance=ExtResource( 12 )]
+position = Vector2( 841.989, 104.952 )
+
+[node name="GenericCharacter" parent="Enemies/AirShooterH2" index="0"]
+speed = 30.0
+move_range = 40.0
+
+[node name="PlayerSpawnPosition" parent="." index="7"]
 position = Vector2( 215.432, -242.532 )
 
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
+
+[editable path="Checkpoints/Checkpoint"]
+
+[editable path="Checkpoints/Checkpoint2"]
+
+[editable path="Enemies/AirShooterV2"]
+
+[editable path="Enemies/AirShooterH"]
+
+[editable path="Enemies/AirShooterH2"]

@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 300
+const SPEED = 200
 
 var direction = Vector2()
 var damage = 1
@@ -12,7 +12,10 @@ func _ready():
 func _process(delta):
 	if is_outside_view_bounds():
 		queue_free()
-
+	if(direction.x > 0):
+		$AnimatedSprite.flip_h = false
+	else:
+		$AnimatedSprite.flip_h = true
 	var motion = direction * SPEED
 	position += motion * delta
 
