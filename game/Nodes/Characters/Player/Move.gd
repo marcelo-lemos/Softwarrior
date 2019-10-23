@@ -1,4 +1,4 @@
-extends "Motion.gd"
+	extends "Motion.gd"
 
 
 const MOVE_ACCELERATION = 25

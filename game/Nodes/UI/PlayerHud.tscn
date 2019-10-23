@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/UI/PlayerHud.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/HUD/HudLayer0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/HUD/HudLayer1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/HUD/ShurikenPoint.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/HUD/HealthPoint.png" type="Texture" id=5]
+
+[node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="HudLayer0" type="TextureRect" parent="."]
+margin_left = 27.3725
+margin_top = 33.1733
+margin_right = 312.372
+margin_bottom = 96.1733
+texture = ExtResource( 2 )
+
+[node name="HudLayer1" type="TextureRect" parent="HudLayer0"]
+margin_left = -0.540344
+margin_top = 0.540359
+margin_right = 284.46
+margin_bottom = 63.5404
+texture = ExtResource( 3 )
+
+[node name="ShurikenPoint" type="TextureRect" parent="HudLayer0/HudLayer1"]
+margin_left = 41.2338
+margin_top = 43.3645
+margin_right = 117.234
+margin_bottom = 63.3645
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="HealthPoint" type="TextureRect" parent="HudLayer0/HudLayer1"]
+margin_left = 51.0745
+margin_top = 17.7747
+margin_right = 96.0745
+margin_bottom = 36.7747
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 2
+
