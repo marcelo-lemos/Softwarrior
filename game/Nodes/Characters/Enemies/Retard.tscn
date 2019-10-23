@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.gd" type="Script" id=1]
+[ext_resource path="res://Nodes/Characters/Enemies/Retard.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/d6238b30-c308-4d0d-a1ca-91052c8e36e0.webp" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/dead_pedroka.png" type="Texture" id=3]
 

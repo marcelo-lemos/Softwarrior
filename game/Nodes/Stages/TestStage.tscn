@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Nodes/Stages/Tileset/tileset.res" type="TileSet" id=1]
 [ext_resource path="res://Nodes/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,11 +8,7 @@
 [ext_resource path="res://Assets/Sprites/Map/background4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Map/background1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Music/Green haven.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Nodes/Characters/Enemies/AirShooterH.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Nodes/Characters/Enemies/AirShooterV.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Nodes/Characters/Enemies/GroundShooter.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Nodes/Characters/Enemies/VeryAngryRunner.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Nodes/Combat/genericShooter.gd" type="Script" id=13]
+[ext_resource path="res://Nodes/Characters/Enemies/Retard.tscn" type="PackedScene" id=9]
 
 [node name="TestScene" type="Node"]
 
@@ -86,7 +82,7 @@ motion_scale = Vector2( 2, 1 )
 motion_mirroring = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 141.346, -105.145 )
+position = Vector2( 23.3268, -32.5178 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
@@ -130,45 +126,7 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
-
-[node name="AirShooterH" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1092.62, -84.7113 )
-
-[node name="GenericCharacter" parent="AirShooterH" index="0"]
-position = Vector2( 9.28534, -37.9151 )
-speed = 100.0
-move_range = 100.0
-
-[node name="AirShooterV" parent="." instance=ExtResource( 10 )]
-position = Vector2( 328.337, -134.778 )
-
-[node name="GenericCharacter" parent="AirShooterV" index="0"]
-speed = 100.0
-move_range = 30.0
-
-[node name="GroundShooter" parent="." instance=ExtResource( 11 )]
-position = Vector2( 474.129, -86.595 )
-
-[node name="VeryAngryRunner" parent="." instance=ExtResource( 12 )]
-position = Vector2( 543.857, -286.304 )
-
-[node name="GenericCharacter" parent="VeryAngryRunner" index="0"]
-position = Vector2( 6.6734, 67.7608 )
-speed = 300.0
-
-[node name="Shooter" type="Node2D" parent="."]
-script = ExtResource( 13 )
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
-
-[editable path="Player"]
-
-[editable path="AirShooterH"]
-
-[editable path="AirShooterV"]
-
-[editable path="VeryAngryRunner"]
-
-[editable path="VeryAngryRunner/GenericCharacter"]

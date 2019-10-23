@@ -2,16 +2,11 @@ extends "Motion.gd"
 
 
 const MOVE_ACCELERATION = 25
-const MAX_MOVE_SPEED = 225
+const MAX_MOVE_SPEED = 250
 const GROUND_SLOWDOWN = 50
-
-#For (velocity_preserve_total_time), players velocity will not be capped on entering this state
-var velocity_preserve_total_time = 0.25
-var velocity_preserve_timer = 0
 
 func enter():
 	print("Entering MOVE")
-	velocity_preserve_timer = 0
 	sprite.play("Run")
 	.enter()
 
@@ -30,16 +25,12 @@ func handle_input(event):
 
 func update(delta):
 	.update(delta)
-	velocity_preserve_timer += delta
 	player.has_dash = true
 	player.has_double_jump = true
 	
 	if input_direction:
-		if(velocity_preserve_timer < velocity_preserve_total_time):
-			player.velocity.x = add_velocity_with_cap(player.velocity.x,input_direction * MOVE_ACCELERATION,MAX_MOVE_SPEED)
-		else:
-			player.velocity.x += input_direction * MOVE_ACCELERATION
-			player.velocity.x = cap_velocity(player.velocity.x, MAX_MOVE_SPEED)
+		player.velocity.x += input_direction * MOVE_ACCELERATION
+		player.velocity.x = cap_velocity(player.velocity.x, MAX_MOVE_SPEED)
 		sprite.play("Run")
 	elif player.velocity.x != 0:
 		sprite.play("Idle")

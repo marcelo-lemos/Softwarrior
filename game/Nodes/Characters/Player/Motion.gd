@@ -10,10 +10,11 @@ func handle_input(event):
 	if event.is_action_pressed("fire") and player.shuriken_shots > 0:
 		player.shuriken_shots -= 0
 		if player.going_right:
-			shuriken_spawner.fire(Vector2(1, 0), shuriken)
+			shuriken_spawner.fire(Vector2(1, 0))
 		else:
-			shuriken_spawner.fire(Vector2(-1, 0), shuriken)
-	
+			shuriken_spawner.fire(Vector2(-1, 0))
+			
+	.handle_input(event)
 	
 func update(delta):
 	input_direction = get_input_direction()[0]
@@ -57,10 +58,3 @@ func cap_velocity(current_velocity, max_velocity):
 	if current_velocity < -max_velocity:
 		return -max_velocity
 	return current_velocity
-
-func add_velocity_with_cap(current_velocity, additional_velocity, max_velocity):
-	if abs(current_velocity + additional_velocity) > abs(max_velocity):
-		if sign(current_velocity) != sign(additional_velocity):
-			return current_velocity + additional_velocity
-		return current_velocity
-	return current_velocity + additional_velocity
