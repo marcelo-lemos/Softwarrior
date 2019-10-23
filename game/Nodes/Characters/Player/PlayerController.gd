@@ -21,7 +21,7 @@ var going_right = true
 #physics vars
 onready var body = get_node("GenericCharacter")
 onready var katana = body.get_node("Katana")
-onready var shuriken = preload("res://Nodes/Combat/Shuriken.tscn")
+onready var shuriken = load("res://Nodes/Combat/Shuriken.tscn")
 onready var shuriken_spawner = $GenericCharacter/RangedAttack
 var velocity = Vector2(0,0.2)
 var apply_gravity = true
@@ -68,7 +68,7 @@ func die():
 	shuriken = MAX_SHURIKEN
 	print("Respawn position")
 	print(respawn_position)
-	global_position = respawn_position
+	body.global_position = respawn_position
 	emit_signal("died")
 
 func _on_iFrame_timeout():
