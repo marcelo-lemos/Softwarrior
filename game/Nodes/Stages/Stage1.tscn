@@ -73,7 +73,6 @@ stream = ExtResource( 4 )
 autoplay = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
-editor/display_folded = true
 scroll_base_offset = Vector2( 1, 0 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
@@ -117,7 +116,7 @@ position = Vector2( -400, -310 )
 motion_scale = Vector2( 0.8, 0.95 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-position = Vector2( 0, -40 )
+position = Vector2( 1.29236, -40 )
 texture = ExtResource( 8 )
 centered = false
 region_enabled = true
@@ -126,45 +125,66 @@ region_rect = Rect2( 0, 0, 100000, 400 )
 [node name="PlayerSpawnPosition" parent="." index="3"]
 position = Vector2( 215.432, -242.532 )
 
-[node name="Checkpoints" parent="." index="4"]
-editor/display_folded = true
-
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 9 )]
-position = Vector2( 697.227, -127.839 )
+editor/display_folded = true
+position = Vector2( 290.135, -94.2377 )
 
 [node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource( 9 )]
-position = Vector2( 917.156, -192.683 )
-
-[node name="Collectables" parent="." index="5"]
 editor/display_folded = true
+position = Vector2( 2143.63, -255.63 )
+
+[node name="Checkpoint3" parent="Checkpoints" index="2" instance=ExtResource( 9 )]
+editor/display_folded = true
+position = Vector2( 4422.9, -126.821 )
 
 [node name="Collectable" parent="Collectables" index="0" instance=ExtResource( 10 )]
-position = Vector2( 457.974, -178.966 )
+position = Vector2( 760.385, -140.195 )
+
+[node name="Collectable2" parent="Collectables" index="1" instance=ExtResource( 10 )]
+position = Vector2( 2130.28, -62.6538 )
+
+[node name="Collectable3" parent="Collectables" index="2" instance=ExtResource( 10 )]
+position = Vector2( 3541.54, -449.069 )
+
+[node name="Collectable4" parent="Collectables" index="3" instance=ExtResource( 10 )]
+position = Vector2( 3670.77, -140.195 )
 
 [node name="AirShooterV2" parent="Enemies" index="0" instance=ExtResource( 11 )]
 editor/display_folded = true
-position = Vector2( 1801.5, 99.7714 )
+position = Vector2( 1955.29, 125.619 )
 
 [node name="GenericCharacter" parent="Enemies/AirShooterV2" index="0"]
+editor/display_folded = true
 speed = 30.0
 move_range = 50.0
 
-[node name="AirShooterV3" parent="Enemies" index="1" instance=ExtResource( 11 )]
-position = Vector2( 1910.54, 135.066 )
+[node name="VisibilityNotifier2D" parent="Enemies/AirShooterV2/GenericCharacter" index="6"]
+position = Vector2( -2.77661, 0.415207 )
 
-[node name="AirShooterH" parent="Enemies" index="2" instance=ExtResource( 12 )]
+[node name="AirShooterV4" parent="Enemies" index="1" instance=ExtResource( 11 )]
 editor/display_folded = true
-position = Vector2( 1392.05, 108.752 )
+position = Vector2( 5360.38, 176.868 )
+
+[node name="AirShooterV3" parent="Enemies" index="2" instance=ExtResource( 11 )]
+position = Vector2( 3570.14, 210.458 )
+
+[node name="AirShooterH" parent="Enemies" index="3" instance=ExtResource( 12 )]
+editor/display_folded = true
+position = Vector2( 2787.8, -156.181 )
 
 [node name="GenericCharacter" parent="Enemies/AirShooterH" index="0"]
+editor/display_folded = true
 speed = 60.0
 move_range = 100.0
 
-[node name="AirShooterH2" parent="Enemies" index="3" instance=ExtResource( 12 )]
-editor/display_folded = true
+[node name="AirShooterH3" parent="Enemies" index="4" instance=ExtResource( 12 )]
+position = Vector2( 3909.26, -150.152 )
+
+[node name="AirShooterH2" parent="Enemies" index="5" instance=ExtResource( 12 )]
 position = Vector2( 841.989, 104.952 )
 
 [node name="GenericCharacter" parent="Enemies/AirShooterH2" index="0"]
+editor/display_folded = true
 speed = 30.0
 move_range = 40.0
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
