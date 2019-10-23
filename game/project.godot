@@ -47,6 +47,10 @@ window/per_pixel_transparency/allowed=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "vnen.tiled_importer" )
+
 [importer_defaults]
 
 texture={
@@ -105,3 +109,7 @@ quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true

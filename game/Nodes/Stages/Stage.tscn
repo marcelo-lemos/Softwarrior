@@ -7,3 +7,9 @@ script = ExtResource( 1 )
 
 [node name="PlayerSpawnPosition" type="Position2D" parent="."]
 
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Collectables" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( -24, -320 )
