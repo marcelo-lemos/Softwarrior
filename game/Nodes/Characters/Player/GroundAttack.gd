@@ -118,7 +118,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				print("a08rhiojsen9ionkl")
 				emit_signal("finished", "previous")
 
-func _on_HitBox_body_entered(body):
-	if body.is_in_group("enemy"):
-		body.take_damage(attack_current['damage'])
 

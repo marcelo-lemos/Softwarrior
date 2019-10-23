@@ -1,7 +1,12 @@
 extends Node2D
 
+signal enemy_hit
+
+const BUILD_SHURIKEN = 2
+
 onready var animation_player = get_node("AnimationPlayer")
 onready var hit_box = get_node("HitBox")
+onready var player = get_node("../..")
 
 var current_attack = null
 
@@ -31,4 +36,6 @@ func animation_player_method_call(function_name):
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("enemy"):
+		print(area.name)
+		emit_signal("enemy_hit")
 		area.get_node("../").take_damage(current_attack['damage'], area.position.x)

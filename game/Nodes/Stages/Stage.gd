@@ -3,6 +3,8 @@ extends Node2D
 onready var collectable_count = $Collectables.get_child_count()
 var collected = 0
 
+signal collected_changed
+
 var respawn_position
 var player_scene = preload("res://Nodes/Characters/Player/Player.tscn")
 var player
@@ -14,7 +16,7 @@ func _ready():
 	spawn_player()
 
 func connect_collectables():
-	connect_children($Collectables, "collected", "on_Item_Collected")
+	connect_children($Collectables, "collected", "_on_Item_Collected")
 
 func connect_checkpoints():
 	connect_children($Checkpoints, "activate_checkpoint", "_on_Checkpoint_Activated")
@@ -26,6 +28,7 @@ func connect_children(parent, child_signal, method):
 func _on_Item_Collected():
 	collected += 1
 	print("Itens collected: " + str(collected))
+	emit_signal("collected_changed", collected)
 
 func _on_Checkpoint_Activated(checkpoint):
 	if current_checkpoint != null:
