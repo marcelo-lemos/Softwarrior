@@ -40,7 +40,7 @@ func die():
 
 func take_damage(damage, position):
 	health -= damage
-	print(health, damage)
+	#print(health, damage)
 	if health <= 0:
 		die()
 
