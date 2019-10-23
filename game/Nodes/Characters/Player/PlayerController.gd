@@ -7,6 +7,8 @@ const KNOCKBACK_POWER = -150
 signal health_changed
 signal died
 
+onready var stage = get_node("../")
+
 var max_health = 10
 var health = 10
 var going_right = true
@@ -22,6 +24,12 @@ var has_dash = true
 var has_double_jump = true
 var shuriken_shots = 4
 var iframed = false
+
+func _ready():
+	stage.connect("collected_changed", self, "abcd")
+
+func abcd():
+	print("ADLER")
 
 func _process(delta):
 	velocity = body.move_and_slide(velocity, NORMAL)

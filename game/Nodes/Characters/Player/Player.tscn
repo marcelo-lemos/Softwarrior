@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Nodes/Characters/Player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://Nodes/Characters/GenericCharacter.tscn" type="PackedScene" id=2]
@@ -60,16 +60,11 @@
 [ext_resource path="res://Nodes/Characters/Player/GroundAttack.gd" type="Script" id=58]
 [ext_resource path="res://Nodes/Characters/Player/DashAttack.gd" type="Script" id=59]
 [ext_resource path="res://Nodes/Characters/Player/AirAttack.gd" type="Script" id=60]
-[ext_resource path="res://Nodes/Characters/Player/GUI.gd" type="Script" id=61]
-[ext_resource path="res://Assets/Sprites/lifebar_bg.png" type="Texture" id=62]
-[ext_resource path="res://Assets/Sprites/lifebar_fill.png" type="Texture" id=63]
-[ext_resource path="res://Assets/Sprites/label_HP_bg.png" type="Texture" id=64]
-[ext_resource path="res://Assets/Sprites/Scroll/ScrolIdle1.png" type="Texture" id=65]
-[ext_resource path="res://Assets/Fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=66]
-[ext_resource path="res://Nodes/Characters/Player/TextureEmitter.gd" type="Script" id=67]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrailFlip.png" type="Texture" id=68]
-[ext_resource path="res://Nodes/Characters/Player/CPUParticles2D.gd" type="Script" id=69]
-[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrail.png" type="Texture" id=70]
+[ext_resource path="res://Nodes/UI/HUD.tscn" type="PackedScene" id=61]
+[ext_resource path="res://Nodes/Characters/Player/TextureEmitter.gd" type="Script" id=62]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrailFlip.png" type="Texture" id=63]
+[ext_resource path="res://Nodes/Characters/Player/CPUParticles2D.gd" type="Script" id=64]
+[ext_resource path="res://Assets/Sprites/MC/PlayerDashTrail.png" type="Texture" id=65]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -121,10 +116,6 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.15685, 20.9156 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 28
-font_data = ExtResource( 66 )
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.754601, 1 )
@@ -221,77 +212,12 @@ current = true
 limit_left = -50
 limit_bottom = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GenericCharacter/Camera2D"]
-
-[node name="GUI" type="MarginContainer" parent="GenericCharacter/Camera2D/CanvasLayer"]
-anchor_right = 1.0
-margin_bottom = 93.0
-rect_scale = Vector2( 0.4, 0.4 )
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-script = ExtResource( 61 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GenericCharacter/Camera2D/CanvasLayer/GUI"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 620.0
-margin_bottom = 73.0
-
-[node name="Bars" type="VBoxContainer" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer"]
-margin_right = 396.0
-margin_bottom = 53.0
-
-[node name="LifeBar" type="HBoxContainer" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Bars"]
-margin_right = 396.0
-margin_bottom = 53.0
-
-[node name="Gauge" type="TextureProgress" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Bars/LifeBar"]
-margin_right = 396.0
-margin_bottom = 53.0
-value = 50.0
-texture_under = ExtResource( 62 )
-texture_progress = ExtResource( 63 )
-
-[node name="Counters" type="HBoxContainer" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer"]
-margin_left = 400.0
-margin_right = 500.0
-margin_bottom = 53.0
-
-[node name="Counter" type="MarginContainer" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Counters"]
-margin_right = 100.0
-margin_bottom = 53.0
-
-[node name="Background" type="NinePatchRect" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Counters/Counter"]
-margin_right = 100.0
-margin_bottom = 53.0
-rect_min_size = Vector2( 100, 20 )
-texture = ExtResource( 64 )
-
-[node name="Icon" type="TextureRect" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Counters/Counter/Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -15.0
-margin_right = -15.0
-rect_min_size = Vector2( 50, 20 )
-texture = ExtResource( 65 )
-stretch_mode = 4
-
-[node name="Number" type="Label" parent="GenericCharacter/Camera2D/CanvasLayer/GUI/HBoxContainer/Counters/Counter/Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -10.0
-margin_right = -10.0
-custom_fonts/font = SubResource( 5 )
-text = "10"
-align = 2
-valign = 1
+[node name="CanvasLayer" parent="GenericCharacter/Camera2D" instance=ExtResource( 61 )]
 
 [node name="TextureEmitter" type="Node2D" parent="GenericCharacter"]
 editor/display_folded = true
 show_behind_parent = true
-script = ExtResource( 67 )
+script = ExtResource( 62 )
 
 [node name="Flip" type="CPUParticles2D" parent="GenericCharacter/TextureEmitter"]
 show_behind_parent = true
@@ -299,10 +225,10 @@ emitting = false
 amount = 10
 lifetime = 0.5
 local_coords = false
-texture = ExtResource( 68 )
+texture = ExtResource( 63 )
 gravity = Vector2( -50, 0 )
 color_ramp = SubResource( 3 )
-script = ExtResource( 69 )
+script = ExtResource( 64 )
 
 [node name="Timer" type="Timer" parent="GenericCharacter/TextureEmitter/Flip"]
 wait_time = 0.15
@@ -314,10 +240,10 @@ emitting = false
 amount = 10
 lifetime = 0.5
 local_coords = false
-texture = ExtResource( 70 )
+texture = ExtResource( 65 )
 gravity = Vector2( 50, 0 )
 color_ramp = SubResource( 3 )
-script = ExtResource( 69 )
+script = ExtResource( 64 )
 
 [node name="Timer" type="Timer" parent="GenericCharacter/TextureEmitter/Default"]
 wait_time = 0.15
@@ -335,10 +261,9 @@ shape = SubResource( 4 )
 
 [node name="iFrame" type="Timer" parent="."]
 wait_time = 0.5
-[connection signal="health_changed" from="." to="GenericCharacter/Camera2D/CanvasLayer/GUI" method="_on_MainCharacter_health_changed"]
-[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/GroundAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/DashAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/AirAttack" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/GroundAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Flip/Timer" to="GenericCharacter/TextureEmitter/Flip" method="_on_Timer_timeout"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Default/Timer" to="GenericCharacter/TextureEmitter/Default" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="GenericCharacter/HitBoxDamage" to="." method="_on_HitBoxDamage_area_entered"]

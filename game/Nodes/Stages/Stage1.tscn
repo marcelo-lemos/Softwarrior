@@ -81,7 +81,7 @@ motion_scale = Vector2( 2, 1 )
 motion_mirroring = Vector2( 0.1, 0.1 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
-position = Vector2( 7.80286, -40.4877 )
+position = Vector2( 3.70179, -40.4877 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
@@ -127,6 +127,7 @@ stream = ExtResource( 8 )
 autoplay = true
 
 [node name="Checkpoints" type="Node2D" parent="." index="4"]
+editor/display_folded = true
 
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 9 )]
 position = Vector2( 697.227, -127.839 )
@@ -141,7 +142,6 @@ position = Vector2( 457.974, -178.966 )
 
 [node name="PlayerSpawnPosition" parent="." index="6"]
 position = Vector2( 215.432, -242.532 )
-
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
