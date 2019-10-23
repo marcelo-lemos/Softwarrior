@@ -4,7 +4,11 @@ const GRAVITY = 40.0
 const NORMAL = Vector2(0,-1)
 const KNOCKBACK_POWER = -150
 
-var health = 20
+signal health_changed
+signal died
+
+var max_health = 10
+var health = 10
 var going_right = true
 
 #physics vars
@@ -29,6 +33,7 @@ func take_damage(damage, positionX):
 		print("AI CARALHO")
 		health -= damage
 		print(health, damage)
+		emit_signal("health_changed", health)
 		
 		velocity.y = KNOCKBACK_POWER
 		if positionX < body.position.x:
@@ -41,6 +46,7 @@ func take_damage(damage, positionX):
 	
 func die():
 	$GenericCharacter.get_node("AnimatedSprite").flip_v = true
+	emit_signal("died")
 
 func _on_iFrame_timeout():
 	iframed = false
