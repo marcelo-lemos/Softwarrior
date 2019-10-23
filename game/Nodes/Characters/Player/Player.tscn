@@ -280,9 +280,9 @@ wait_time = 0.5
 
 [connection signal="health_changed" from="." to="PlayerHud" method="_on_MainCharacter_health_changed"]
 [connection signal="shuriken_changed" from="." to="PlayerHud" method="_on_MainCharacter_shuriken_changed"]
+[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/DashAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/AirAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/GroundAttack" method="_on_AnimationPlayer_animation_finished"]
-[connection signal="animation_finished" from="GenericCharacter/Katana/AnimationPlayer" to="GenericCharacter/StateMachine/DashAttack" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Flip/Timer" to="GenericCharacter/TextureEmitter/Flip" method="_on_Timer_timeout"]
 [connection signal="timeout" from="GenericCharacter/TextureEmitter/Default/Timer" to="GenericCharacter/TextureEmitter/Default" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="GenericCharacter/HitBoxDamage" to="." method="_on_HitBoxDamage_area_entered"]
