@@ -31,4 +31,4 @@ func animation_player_method_call(function_name):
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("enemy"):
-		area.get_node("../").take_damage(current_attack['damage'])
+		area.get_node("../").take_damage(current_attack['damage'], area.position.x)

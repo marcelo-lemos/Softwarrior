@@ -13,7 +13,7 @@ var direction = Vector2(0,1)
 var shot_direction = Vector2(-1, 0)
 
 #control
-var health = 20
+var health = 1
 var is_dead = false
 
 func _ready():
@@ -40,7 +40,7 @@ func die():
 	$HitBoxDamage.set_deferred("monitorable", false)
 	$FreeDeadNode.start()
 
-func take_damage(damage):
+func take_damage(damage, positionX):
 	health -= damage
 	print(health, damage)
 	if health <= 0:
