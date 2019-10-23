@@ -14,11 +14,8 @@ func _on_Button_pressed():
 	visible = false
 
 
-func _on_Button2_pressed():
-	pass
-
-
 func _on_Button3_pressed():
+	get_tree().paused = false
 	get_tree().change_scene("Nodes/UI/TitleScreen.tscn")
 
 

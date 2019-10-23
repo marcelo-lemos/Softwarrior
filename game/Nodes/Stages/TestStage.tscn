@@ -57,12 +57,6 @@ margin_right = 88.0
 margin_bottom = 20.0
 text = "RESUME"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
-margin_top = 35.0
-margin_right = 88.0
-margin_bottom = 55.0
-text = "OPTIONS"
-
 [node name="Button3" type="Button" parent="CanvasLayer/Pause/VBoxContainer"]
 margin_top = 70.0
 margin_right = 88.0
@@ -142,9 +136,7 @@ position = Vector2( 328.337, -134.778 )
 [node name="GenericCharacter" parent="AirShooterV" index="0"]
 speed = 100.0
 move_range = 30.0
-
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button" to="CanvasLayer/Pause" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button2" to="CanvasLayer/Pause" method="_on_Button2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button3" to="CanvasLayer/Pause" method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/VBoxContainer/Button4" to="CanvasLayer/Pause" method="_on_Button4_pressed"]
 
