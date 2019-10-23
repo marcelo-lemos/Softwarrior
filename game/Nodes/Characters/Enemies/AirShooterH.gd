@@ -38,7 +38,7 @@ func die():
 	$HitBoxDamage.set_deferred("monitorable", false)
 	$FreeDeadNode.start()
 
-func take_damage(damage):
+func take_damage(damage, position):
 	health -= damage
 	print(health, damage)
 	if health <= 0:
